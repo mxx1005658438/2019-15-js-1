@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+   function fn(a,b){
+    console.log(this,1,2);
+    return 'ss';
+   }
+   let obj={name:1};
+   function myCall(context,...arg){
+    context=context||window;
+    let res=null;
+    context.fn=this;
+    res=context.fn(...arg);
+    delete context.fn;
+    return res;
+   }
+   Function.prototype.myCall=myCall;
+   console.log(fn.myCall(obj,1,2))
+    </script>
+</body>
+</html>

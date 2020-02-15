@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        构造函数：
+            js给咱提供该多内置类，但是有可能满足不了咱们的需求，
+            咱们需要自己去自定义类，
+            使用构造函数去创建自定义类
+            new
+
+         */
+        //  function createInfo(name,age){
+        //      /* 
+        //      形成私有作用域
+        //      形参赋值
+        //      变量提升
+        //      默认生成一个空对象
+        //      把当前作用域的this指向这个空对象
+        //      代码执行
+        //      默认把这个对象(this)return出去
+        //      作用域是否销毁
+        //       */
+        //      this.name = name;
+        //      this.age = age;
+        //      this.say = function(){};
+        //  }
+
+        //  let person1 = new createInfo('jiangguan',18);
+        //  let person2 = new createInfo('panhong',24);
+        // //  person1就是createInfo类的实例 // 构造函数的返回值就是当前类的实例
+        //  console.log(person1) // {name:'jiangguan',age:18,say:f}
+        //  console.log(person2) // {name:'panhong',age:24.say:f}
+         // 在函数执行之前加上new，此时的函数就成了构造函数执行模式，那createInfo就是自定义类
+      
+        //  person1和person2都是createInfo类的实例
+
+        // console.log(person1.say === person2.say) // false
+
+       
+
+        // let person3 = createInfo('chenlei',18);
+        // console.log(person3) // 他不是crtateInfo类的实例，因为执行函数前没有加new(普通函数运行模式)
+
+        // let person4 = new createInfo; // 如果构造函数执行的时候不想传递实参，那可以省略执行小括号
+        // console.log(person4)
+
+        // 实例都是对象数据类型的
+        // 类是函数数据类型的
+        // 构造函数里的this就是当前类的实例 
+
+        /* 
+        普通函数和构造函数有啥区别
+        1、运行上的区别
+            1、普通函数运行：形成私有作用域-->形参赋值-->变量提升-->代码执行-->作用域是否销毁
+            2、构造函数执行：形成私有作用域-->形参赋值-->变量提升-->默认生成空对象-->当前作用域的this指向这个空对象-->代码执行-->默认把当前this return出去-->作用域是否销毁
+        2、执行上的区别
+            1、普通函数执行必须有小括号
+            2、构造函数执行之前必须加上new 如果你不想传递实参，可以省略执行小括号
+            3、在构造函数里如果你手动return一个基本值，不会影响构造函数的返回值，但是如果收订return引用值，那构造函数的返回值就会发生变化，(此时的返回值已经不是当前类的实例了)，所以我们不要轻易在构造函数里手动return引用值
+         */
+
+            function Fn(){
+                this.a = 1;
+                this.b = 2;
+                return {};
+            }
+
+            let f1 = new Fn; // {a:1,b:1}
+            let f2 = new Fn // {a:1,b:1}
+            console.log(f1,f2)
+
+
+    </script>
+</body>
+</html>

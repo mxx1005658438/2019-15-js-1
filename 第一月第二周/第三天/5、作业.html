@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       //1==============================================
+   //     function Fn() {
+   //      let a = 1;
+   //      this.a = a;
+   //  }
+   //  Fn.prototype.say = function () {
+   //      this.a = 2;
+   //  };
+   //  Fn.prototype = new Fn;//先创建实例再重定向
+   //  let f1 = new Fn  
+   //  ​
+   //  Fn.prototype.b = function () {
+   //      this.a = 3;
+   //  }; 
+   //  console.log(f1.a);//1
+   //  console.log(f1.prototype);//un
+   //  console.log(f1.b);//f
+   //  console.log(f1.hasOwnProperty('b'));//false
+   //  console.log('b' in f1);//true
+   //  console.log(f1.constructor == Fn);//true
+    //2=========================================
+   //  function fun(){
+   // 	this.a=0;
+   // 	this.b=function(){
+   // 		alert(this.a);
+   // 	}
+   // }
+   // fun.prototype={
+   // 	b:function(){
+   // 		this.a=20;
+   // 		alert(this.a);
+   // 	},
+   // 	c:function(){
+   // 		this.a=30;
+   // 		alert(this.a)
+   // 	}
+   // }
+   // var my_fun=new fun();
+   // my_fun.b();//0
+   // my_fun.c();//30
+   //3===================================
+//    function C1(name) {
+//         if (name) {
+//             this.name = name;
+//         }
+//     }
+//     function C2(name) {
+//         this.name = name;
+//     }
+//     function C3(name) {
+//         this.name = name || 'join';
+//     }
+//     C1.prototype.name = 'Tom';//往c1的原型上增加属性name
+//     C2.prototype.name = 'Tom';
+//     C3.prototype.name = 'Tom';
+//     alert((new C1().name) + (new C2().name) + (new C3().name));//Tomundefinedjoin
+  //4=========================================
+//   function Fn(num) {
+//    	this.x = this.y = num;
+//    }
+//    Fn.prototype = {
+//    	x: 20,
+//    	sum: function () {
+//    		console.log(this.x + this.y);
+//    	}
+//    };
+//    let f = new Fn(10);
+//    console.log(f.sum === Fn.prototype.sum);//true
+//    f.sum();//20? 
+//    Fn.prototype.sum();//NaN 20+un
+//    console.log(f.constructor);// f object
+
+   </script> 
+</body>
+</html>

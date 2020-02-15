@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*
+       变量提升 js的运行机制：
+       在代码执行之前，先把代码从上往下浏览一遍，把其中带var和带function的提前声明  带var的只声明步定义 带function的即声明又定义
+       var function （let const class import）不存在变量提升
+       */ 
+      /*
+      作用域：全局作用域（栈内存用来提供代码运行环境的：堆内存一般用来存储内容（对象，数组，函数））
+      私有作用域（函数执行形成私有作用域  ES6新增的块级作用域）
+      */
+     /*
+     函数执行
+     先开辟一个私有作用域
+     形参赋值
+     变量提升
+     代码执行
+     作用域是否销毁
+     */
+//    if(true){
+//        var zf='hhh';
+//        let zf2='zz';
+//    }
+   /*
+   作用域链
+   */
+var aaa = 100;
+function f(){
+	var aaa = 1;
+	var fn = function(){console.log(aaa)}
+	return fn
+
+}
+var f2 = f();
+f2();//
+
+    </script>
+</body>
+</html>

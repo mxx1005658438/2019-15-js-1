@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        闭包 可以让外界获取作用域内部变量的一种方式
+        闭包：指的是变量的一种保护机制：保护里边的变量不受外界干扰，还可以保存这个变量
+        闭包不能用太多，用的太多可能会造成内存泄漏；
+        */
+        // function fn() {
+        //     var n = 0;//1 2
+        //     function f() {
+        //         var b = 13;
+        //         n++;
+        //         console.log(n);//1
+        //     };
+        //     f();
+        //     return f;
+        // };
+        // var r = fn();
+        // r();//2
+
+        // var i = 5;
+        // function fn(i) { 
+        //     return function (n) { 
+        //         console.log(n + (++i)); 
+        //     }
+        // }
+        // var f = fn(1);
+        // f(2);
+        // fn(3)(4); 
+        // fn(5)(6); 
+        // f(7); 
+        // console.log(i);
+
+        // var num = 1;
+        // var obj = {
+        //     num: 10,
+        //     fn: (function (num) { 
+        //         var num = 2;//3 4 5 6
+        //         return function (n) { 
+        //             console.log(n * (num++));
+        //         }
+        //     })(num)
+        // }
+        // var f = obj.fn; 
+        // console.log(f === obj.fn) //true
+        // f(10); //20
+        // f(20);//60
+        // obj.fn(30); //120
+        // obj.fn(40);//200
+
+        var a = 9; //
+        function fn() {
+            /* 
+             */
+            a = 0;//1 2
+            return function (b) { 
+                return b + a++;
+            }
+        }
+        var f = fn(); // aaafff000
+        var m = f(5); //
+        alert(m); // 5
+        var n = fn()(5);
+        alert(n); //5 
+        var x = f(5);
+        alert(x); // 6
+        alert(a); //2 
+
+
+
+    </script>
+</body>
+
+</html>

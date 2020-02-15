@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        可枚举类型：
+        for in：遍历可枚举的属性
+        可枚举属性：对象的私有属性和对象所属类原型的你手动增加的属性都是可枚举属性，
+        不可枚举属性：对象天生自带的属性和原型上天生自带的属性都是不可枚举的属性
+         */
+        //  let obj = {name:1,age:2}
+        //  console.log(obj)
+        //  for(key in obj){
+        //     console.log(key) // 对象的每一个属性名
+        //  }
+        function Fn(){
+            this.a = 1;
+            this.b = 2;
+            this.c = 3;
+        }
+        Fn.prototype.f = 4;
+        Object.prototype.r = 5;
+        let f1 = new Fn;
+        f1.s = 6;
+
+        for(key in f1){
+            console.log(key) // 可枚举的属性的属性名
+        }
+
+    </script>
+</body>
+</html>

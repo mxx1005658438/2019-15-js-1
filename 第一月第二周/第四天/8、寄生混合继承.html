@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /* 
+        寄生混合继承：继承私有和公有
+
+         */
+        //  Boject.create:
+        let obj = {name:1};
+        let ss = Object.create(obj); // 默认创建一个空对象，并且把这个对象的__proto__指向了你传递的第一个实参
+        console.log(ss)
+
+        function A(){
+            this.a = 10;
+        };
+        A.prototype.say = function(){
+            console.log('erYa');
+        };
+        function B(){
+            this.s = 10;
+            A.call(this) // 让函数A以普通函数模式运行，并且把A函数的this指向了类B的实例
+        }
+        B.prototype = Object.create(A.prototype) // 创建一个空对象，并且把这个空对象的__proto__指向了类A的原型，让类B的原型在指向这个空对象
+        // B.prototype = A.prototype;
+
+        let f1 = new B; // {s:10,a:10}
+        let f2 = new A;
+       // f1-->{}-->A.prototype-->Object.prototype
+        // f2-->A.prototype-->Object.prototype
+       console.log(f1.a)// 10
+       console.log(f1.s) // 10
+       f1.say() // 'erYa';
+       f1.__proto__.eat = function(){ // 加到类B自己的原型里了
+           console.log('哈哈')
+       }
+       f1.eat() // '哈哈'
+       f2.eat() // 报错
+
+    </script>
+</body>
+</html>

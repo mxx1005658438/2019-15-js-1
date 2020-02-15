@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+    私有作用域：
+     在全局作用域生成之后才会有私有作用域，只有函数执行的时候才会形成私有作用域
+     函数执行会形成一个私有栈内存（私有作用域）
+    */
+    //函数的定义
+    function fn(){
+        //函数的定义：
+        //1、开辟一个堆内存，生成一个16进制的空间地址
+        //2、把函数里的代码以字符串的格式存储到堆内存中
+        //3、把16进制的空间地址返回到值存储区
+    }
+    fn()
+    /*
+    1、首先会开辟一个私有作用域
+    2、形参赋值
+    3、变量提升
+    4、代码执行
+    5、作用域是否销毁
+    */
+    //私有变量：
+    //1、在私有作用域里创建的变量就是私有变量
+    //在私有作用域去var、function、let、const。。。创建变量
+    //2、 形参也是私有变量
+    //全局作用域不能够拿到私有作用域里的变量，但是私有作用域可以拿到全局作用域的变量
+    // 在私有作用域里获取一个变量的时候，先看自己私有的有没有这个变量，如果有就直接用，如果没有，才会去外层作用域查找
+//    var num=100;
+//    function fn(num){
+//       num++;
+//       console.log(num)//101
+//    }
+//    fn(num);
+//    console.log(num);//100
+
+    </script>
+</body>
+</html>

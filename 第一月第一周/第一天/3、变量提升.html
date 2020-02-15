@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        变量提升：
+        变量提升是浏览器的一个机制
+        在当前作用域中，在代码执行之前，浏览器会堆带var和带function的变量进行提前的声明和定义，带var的只声明（创建变量）不定义，带function即声明又定义(赋值)
+        */
+    // console.log(a);//un
+    // var a=12;
+    // console.log(a);//12
+
+    // console.log(a);//un
+    // console.log(b);//baoco
+    // var a=b=c=100;  //var a=100;b=100;c=100;
+
+    // fn()
+    // function fn(){
+    //     console.log(num);//un
+    //     var num=12;
+    // }
+    // console.log(num)//baocuo
+
+    // console.log(a);//un
+    // console.log(b);//un
+    // console.log(c);//un
+    // var a,b,c=12;//var a;var b;var c=12;
+    // console.log(a);//un
+    // console.log(b);//un
+    // console.log(c);//12
+
+    // var name='xiaohong';
+    // function fn(name){
+    //     console.log(name);//f
+    //     function name(){};
+    //     console.log(name);//f
+    // }
+    // fn(name);
+
+    //   fn(); 
+    //   function fn() {console.log(1)};
+    //   fn(); 
+    //   function fn() {console.log(2)};
+    //   fn(); 
+    //   var fn = function () {console.log(3)};
+    //   fn(); 
+    //   function fn() {console.log(4)};
+    //   fn(); 
+    //   function fn() {console.log(5)};
+
+    </script>
+</body>
+
+</html>

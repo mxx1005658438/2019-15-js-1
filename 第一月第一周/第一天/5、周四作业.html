@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 4、
+    // var a = 4;
+    // var f = 3;
+    // function b(x,y,a) {
+    //     alert(a);
+    //     // 形参和arguments存在映射关系；
+    //     arguments[2]=10;
+    //     alert(a);
+    // }
+    // a=b(1,2,f);
+    // alert(a);//un(b没有return)
+    // console.log(f);
+// 8、
+    // console.log(a)//
+    // var a = 12,
+    //     b = 12;
+    // function fn() {
+    //     console.log(a, b);//
+    //     var a = b = 13;
+    //     console.log(a, b);//
+    // }
+    // fn();
+    // console.log(a, b);//
+
+// 9、
+    // console.log(a);//bacuo
+    // a=12;
+	// function fn(){
+	// 	console.log(a);//12
+	// 	a=13;	
+	// }
+	// fn();
+	// console.log(a);//13
+
+// console.log(a);//un
+//   var a = 12;
+//   function fn(a) {//实参没有传值，所以形参：var a=undefined
+//     console.log(a);//un
+//     a = 13;
+//   }
+//   fn();
+//   console.log(a);//12
+
+
+//在赋值表达式执行之前，先给b增加一个C属性，对应的值暂时是null；
+// var a={x:12};
+// var b=a;
+// b.c=b={y:12};
+// a.c=b={y:100};
+// console.log(a,b)
+
+// function ww(){
+//     console.log(qqq);
+//     let qqq=100;
+// } 
+// console.log(qqq)
+
+//1、
+// var n = 10;
+// function outer() {
+//     var n = 15;
+//     function inner(n) {
+//         console.log(n)//
+//         function center() {
+//             n++;
+//             console.log(n);//
+//         }
+//         center();
+//     }
+//     inner(n);
+// }
+// outer();
+
+//2、
+// var n = 20;
+// function outer() {
+//     ++n;
+//     function inner() {
+//         console.log(n++);//
+//         function center() {
+//             n += 2;
+//             console.log(n);//
+//         }
+//         center();
+//     }
+//     inner();
+// };
+// outer();
+// console.log(n)//
+
+//3、
+// alert(a);//un
+// console.log("a" in window);//true
+// if (!("a" in window)) {
+//     var a = 10;
+// }
+// alert(a);//un
+
+// console.log(fn);//un
+// if (9 == 8) {
+//     function fn() {
+//         alert(2);
+//     }
+// }
+
+//4、
+// f = function () {
+//     return true
+// };
+// g = function () {
+//     return false
+// };
+// (function () {
+//     console.log(g);
+//     if (g() && [] == ![]) {
+//         f = function f() {
+//             return false
+//         };
+//     }
+//     function g() {
+//         return true
+//     };  
+// })();
+// alert(f());//false
+// alert(g())//false
+
+//5、
+// fn();//
+// var fn = function(){console.log(0)}
+// fn();//
+// function fn(){console.log(1)}
+// fn();//
+// var fn = function(){console.log(2)}
+// fn()//
+
+//6
+// var x = 5;//6 7 8
+// function fn() {
+//     return function (y) {
+//         console.log(y + (++x));
+//     }
+// }
+// var f = fn(6);//fn(6)执行的结果是把这个函数的地址返回出去
+// f(7);//13
+// fn(8)(9);//16
+// f(10);//18
+// console.log(x);//8
+
+//7
+// var x = 5;
+// function fn(x) {//7 8 9 
+//     return function (y) {
+//         console.log(y + (++x));
+//     }
+// }
+// var f = fn(6);//fn(6)执行的结果是把这个函数的地址返回出去
+// f(7);//14
+// fn(8)(9);//18
+// f(10);//18
+// console.log(x);//5
+
+    </script>
+</body>
+</html>

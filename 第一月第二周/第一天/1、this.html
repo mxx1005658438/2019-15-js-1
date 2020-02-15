@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        this:this就是Js里的关键字有特殊的意义
+        this就是函数的执行主体，谁执行的函数，函数里的this就是谁
+        */
+        /*
+        1、在全局作用域下，this是window（在严格模式下，this是undefined）
+        */
+        // console.log(this===window)//true
+        // window.a=13;
+        // console.log(this.a)//13
+        
+        /*2、看函数执行前有没有点，如果有点，那点前边是谁函数里的this就是谁，如果没有点，那函数里的this就是window*/
+        // function fn(){
+        //     console.log(this)
+        // }
+        // fn()
+        // let obj={
+        //     fn:function(){
+        //         console.log(this)//obj
+        //     }
+        // }
+        // obj.fn()
+        // let f=obj.fn;
+        // f()//window
+        /*3、自执行函数里的this就是window*/
+        // (function(){
+        //     console.log(this)
+        // })()
+        /*4、给元素绑定事件行为，那事件里的this就是当前元素本身*/
+       
+    //    btn.onclick=function(){
+    //        console.log(this)
+    //    }
+        //5、回调函数里的this是window
+        //回调函数：回调函数里边传递函数
+        // let ary=[1,2,3];
+        // ary.forEach(function(item,index){
+        //     console.log(this)
+        // })
+        // setTimeout(function(num){
+        //     console.log(num)
+        //     console.log(this)
+        // },1000,1)
+        // function fn(m){
+        //     m()
+    
+        // }
+        // fn(function(){
+        //     console.log(this)
+        // }) 
+        /*
+        6、箭头函数里边没有this，但是咋们要是在箭头函数里使用this，他就会往上一级作用域查找，如果上一级作用域也没有，那就继续往上查找，直到找到全局的window为止*/
+        // let obj = {
+        //     num: 2,
+        //     fn: function () {
+        //         // this-->obj
+        //         let m = () => {
+        //             // this-->obj
+        //             console.log(this.num) // obj(向上一级作用域查找)
+        //         }
+        //         m()
+        //     }
+        // }
+        // obj.fn()
+
+        // var num = 100;
+        // var obj = {
+        //     num: 2,
+        //     fn: function () {
+        //         var num = 1;
+        //         console.log(this); 
+        //         (function (num) {
+        //             console.log(this.num + num); 
+        //         })(this.num);
+        //     }
+        // }
+        // obj.fn();
+        // var f = obj.fn;
+        // f();
+
+        // var num = 1; // 7
+        // var obj = {
+        //     num: 0,
+        //     fn: function () {
+        //         num = 6;//7
+        //         // this-->obj
+        //         (function (num) { 
+        //             ++this.num;
+        //             num++;//6
+        //             console.log(num); //  1
+        //         })(this.num);
+        //     }
+        // }
+        // obj.fn();
+        // console.log(window.num, obj.num); //7 0
+
+    //     f = function () {
+    //         return true
+    //     };
+    //     g = function () {
+    //         return false
+    //     };
+    //    ~ function () {
+    //         if (g() && [] == ![]) {//if在高版本浏览器里只声明不定义
+    //             f = function () {
+    //                 return false
+    //             };
+
+    //             function g() {
+    //                 return true
+    //             };
+    //         }
+    //     }();
+    //     console.log(f());//
+    //     console.log(g());//
+
+    function g1() {
+        this.g="gg"//g1
+    };
+    var obj4= {
+        g1:g1,
+        gg:function () {
+
+            g1();
+        }
+    };
+    obj4.g1();
+    obj4.gg();
+    console.log(obj4);//
+    console.log("g" in window); //true
+
+     
+    </script>
+</body>
+</html>

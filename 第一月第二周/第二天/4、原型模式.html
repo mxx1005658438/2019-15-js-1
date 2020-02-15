@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       /*
+       原型模式：
+       构造函数解决了实例的私有属性
+       原型模式解决了实例的公有属性
+       */
+        //        let ary = [1,2,3,4,5];
+        //  let ary1 = [3,4,5,6];
+        // //  sort、push
+        // ary.push('s');
+        // ary1.push('s');
+        // // push肯定不是数组的私有属性
+        // console.log(ary,ary1)
+
+        // function Fn(name,age){
+        //     this.name = name;
+        //     this.age = age
+        // };
+        // Fn.prototype.say = function(){
+        //     console.log('哈哈')
+        // }
+
+        // let f1 = new Fn('chengyunkai', 18); // {name:'chengyunkai', age:18}
+        // let f2 = new Fn('panhong', 24);// {name:'panhong', age:24}
+        // console.log(f1,f2)
+        // f1.say()
+
+      /*   1、每一个函数天生自带一个prototype属性，其属性值是一个对象，这个对象里存储的是公有属性(这个对象也叫原型)
+        2、每一个原型天生自带constructor属性，其属性值指向当前的类
+        3、每一个对象天生自带一个__proto__属性，其属性值指向当前所属类的原型 */
+
+            // let ary1 = [1,2,3];
+            // let ary2 = [2,3,4];
+            // Array.prototype.s = 10;
+            // console.log(ary1.s)
+
+            function Fn(name,age){
+                this.name = name;
+                this.age =age
+            }
+            Fn.prototype.say = function(){
+                console.log('哈哈')
+            }
+            let f1 = new Fn('xiaohong', 18); // {name:'xiaohong',age:18}
+            let f2 = new Fn('xiaoming', 24); // {name:'xiaoming', age:24}
+            f1.say()
+            f2.say()
+            console.log(Fn.prototype.constructor === Fn)
+            console.log(f1.__proto__.__proto__.__proto__)
+            // 我想增加一个属性，让Fn类的每一个实例都可以使用，
+                // say:function(){
+                //     console.log('哈哈')
+                // }
+
+   </script> 
+</body>
+</html>

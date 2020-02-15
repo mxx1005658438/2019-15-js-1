@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        工厂模式：把实现同一个功能的代码封装到一个函数里，以后想实现这个功能，就直接调用这个函数就好了
+        （高内聚：提高代码的复用率 低耦合：减少页面重复的代码）
+        */
+        function fn(nae,age){
+            let guoji='china';
+            return{
+                name:name,
+                age:age,
+                guoji:guoji
+            }
+        }
+        let person1=fn('hhh',18);
+        let person2=fn('nnn',19);
+        console.log(person1,person2)
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                /* 
+        原型的重定向:
+        重定向之后的原型没有constructor，
+        内置类的原型不允许重定向
+         */
+        //  function Fn(){
+        //      this.x = 10;
+        //  };
+        //  Fn.prototype.say = function(){
+        //      console.log('哈哈')
+        //  };
+        //  Fn.prototype = {};
+
+        //  let f1 = new Fn;
+        //  f1.say(); // 报错
+
+
+        // function Fn() {
+        //     this.x = 100;
+        //     this.y = 100;
+        // };
+        // Fn.prototype.getX = function () {
+        //     console.log(this.x)
+        // };
+        // let f1 = new Fn;
+        // Fn.prototype = {
+        //     getY: function () {
+        //         console.log(this.y)
+        //     }
+        // };
+        // let f2 = new Fn;
+        // console.log(f1.getX);
+        // console.log(f2.getX);
+        // console.log(f1.constructor);
+        // console.log(f2.constructor);
+        // console.log(Fn.prototype);
+        // console.log(f1 instanceof Fn)
+        // console.log(f2 instanceof Fn)
+
+
+        Array.prototype = {};
+        let ary = [1,2,3];
+        ary.push('s');
+        console.log(ary)
+    </script>
+</body>
+</html>

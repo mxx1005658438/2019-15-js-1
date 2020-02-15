@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        toString.call()：检测数据类型比较好的方法
+         Object.prototype.toString.call(被检测的实例)
+         他的返回值是一个字符串 '[object 当前被检测实例所属的类]'
+
+         他的局限性：
+            1、他只能检测内置类，不能够检测自定义类，
+            只要是自定义类返回的都是 '[object Object]'
+         */
+        //  Object.prototype.toString.call // 这个方法在Object的原型上
+
+        //  console.log({}.toString ===  Object.prototype.toString)
+
+        // let ary = [1,2,3];
+        // console.log(Object.prototype.toString.call(ary)) //  '[object Array]'
+        // console.log(Object.prototype.toString.call({})) //  '[object Object]'
+        // console.log(Object.prototype.toString.call(1))//  '[object Number]'
+        // console.log(Object.prototype.toString.call('1')) //  '[object String]'
+        // console.log(Object.prototype.toString.call(true)) //  '[object Boolean]'
+        // console.log(Object.prototype.toString.call(undefined)) //  '[object Undefined]'
+        // console.log(Object.prototype.toString.call(null)) //  '[object Null]'
+
+        // function Fn(){
+        //     this.a = 1;
+        // }
+        // let f1 = new Fn;
+        // console.log(Object.prototype.toString.call(f1)) // '[object Object]'
+        console.log({}.toString.call(1)) // 可以
+        console.log([].toString.call(1)) // 不可以
+    </script>
+
+</body>
+</html>

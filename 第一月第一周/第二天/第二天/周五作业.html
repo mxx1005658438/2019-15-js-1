@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//1        
+//  var x = 0,
+//     y = 1;
+// function fn() {
+//     x += 2;
+//     fn = function (y) {
+//         console.log(y + (--x));
+//     };
+//     console.log(x, y);
+// }
+// fn(3);
+// fn(4);
+// console.log(x, y);     
+//2=================================================
+// function fn() {
+//     var i = 5;//4
+//     return function (n) {//
+//         console.log(n * (--i))
+//     }
+// }
+// var f = fn();
+// f(10);//
+// fn()(10);//
+// fn()(20);//
+// f(20);//
+
+//3==============================================
+// var i = 2;//
+// function fn() {
+//    var m=0
+//     i += 2;// 
+//     return function (n) {
+//     m=++n+(--i)
+//         console.log(m++);
+//     }
+// }
+// var f = fn();
+// f(2);//
+// f(3);//
+// fn()(2);//
+// fn()(3);//
+// f(4);//
+
+//4 ==================================================
+// var n = 10;
+// function fn() {
+//     var n = 20;
+//     function f() {
+//         n++;//
+//         console.log(n);//
+//     }
+//     f();
+//     return f;
+// }
+// var x = fn();
+// x();//
+// x();//
+// console.log(n);//
+
+//5 =========================================
+// console.log(f)// 3
+// function f(){1}
+// console.log(f) // 3
+// var f = function(){2}
+// console.log(f) //2
+// function f(){3}
+// console.log(f) //2
+
+//6 =====================
+// console.log(a);//un
+//     var a=12;
+//     function fn(){
+//         console.log(a);//un
+//         var a=13;
+//     }
+//     fn();
+//     console.log(a)//12
+
+//7-----------------------
+//  console.log(a);//un
+//     var a=12;
+//     function fn(){
+//        console.log(a);//12
+//        a=13
+//     }
+//     fn();
+//     console.log(a)//13
+
+//8----------------------
+//  var foo=1;
+//     function bar(){
+//         if(!foo){
+//             var foo=10;
+//         }
+//         console.log(foo);//10
+//     }
+//     bar();
+//     console.log(foo);//1
+
+//9 ----------------------------
+// var n=13;
+//     function fn(n){
+//        console.log(n);// 13
+//        var n=14;
+//        console.log(n);//14
+//     }
+//     fn(n);
+//     console.log(n)//13
+
+//10 ----------------------------
+// var n = 13;//15
+//     function fn(){
+//          n = 15;
+//          console.log(n);//15 
+//     }
+//     fn();
+//     alert(n);//15 
+
+//11 ----------------------------
+// var n = 10;
+//     function outer(){
+//         n = 15;
+//         function inner(){
+//             function center(){
+//                 alert(n);//15
+//             }
+//             center();
+//         }
+//         inner();
+//     }
+//     outer()
+
+//12 -----------------------------
+// var n=0;
+//     function a(){
+//         var n=10;
+//         function b(){
+//             n++;//11
+//             alert(n);//11
+//         }
+//         b();
+//         alert(n)//11
+//     }
+//     a();
+//     alert(n);//0
+
+//13 --------------------------
+// console.log(num,str);//un un
+//     var num = 18;
+//     var str = "lily";//'candy'
+//     function fn2(){
+//         console.log(str,num);//'lily' un 
+//         num = 19;
+//         str = "candy";
+//         var num = 14;
+//         console.log(str,num);//'candy' 14
+//     }
+//     fn2();
+// 
+//    console.log(str,num);//'candy' 18
+
+//14--------------------------------------
+// function qqq(ary){
+// 	ary.push(100);
+// 	console.log(ary)//[100,200,300,100]
+// 	ary = [1,2,3];
+// 	console.log(ary);//[1,2,3]
+// }
+// var a = [100,200,300];
+// qqq(a);
+// console.log(a);//[100,200,300,100]
+var a=1;
+function fn(a){
+    console.log(a);
+    var a=2;
+    function a(){}
+}
+fn(a)
+    </script>
+</body>
+</html>

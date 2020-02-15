@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        原型继承：不仅继承了私有属性，还继承公有属性
+        中间类继承：只能继承公有属性
+         */
+        //  function fn(){
+        //      console.log(arguments) // 他是类数组；
+        //      console.log(arguments instanceof Array) // false
+        //      // arguments虽然不是Array的实例，你就不能够调用Array原型上的方法，但是你可以手动把arguments的__proto__指向Array的原型，这样就可以调用Array原型上的方法了
+        //      arguments.__proto__ = Array.prototype;
+        //      arguments.reverse(); // 倒叙
+        //      console.log(arguments)
+        //  }
+        //  fn(1,2,3,4,5,6);
+
+        // let str = new String('1');
+        // str.__proto__ = Array.prototype;
+        // console.log(str.push())
+        
+    </script>
+</body>
+</html>

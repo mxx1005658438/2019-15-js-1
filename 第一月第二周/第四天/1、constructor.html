@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        typeof
+        instanceof： 当前类的原型只要出现在了实例的原型链上就返回true
+        constructor：利用他实例数据类型检测
+        判断当前的实例的constructor的属性值是不是你预估的类
+            但是他也有局限性：
+                1、不能够给当前类的原型进行重定向，这样就会造成检测的结果不准确
+                2、不能够给当前实例增加私有属性constructor,也会造成检测的结果不准确
+         */
+
+        //  function Fn(){
+        //      this.a = 1;
+        //  }
+        //  let f1 = new Fn;
+        //  console.log(f1.constructor === Fn) // 如果返回true，说明f1就是Fn的实例
+        //  {a:1,__proto__}
+        // let obj = {}
+        // console.log(obj.constructor === Fn) // false 说明obj不是Fn的实例
+        // let ary = [1,2,3];
+        // console.log(ary.constructor === Array) // true
+        // -----------------------------------------
+            // 原型重定向
+        // function Fn(){
+        //     this.a = 1;
+        // }
+        // Fn.prototype = {}; // 原型重定向
+        // let f1 = new Fn;
+        // console.log(f1.constructor === Fn) // Object === Fn // false
+
+        //----------------------------------------------
+        // 给实例增加私有属性constructor
+        // function Fn(){
+        //     this.a = 1;
+        // }
+        // // Fn.prototype = {}; // 原型重定向
+        // let f1 = new Fn;
+        // // console.log(f1.constructor === Fn) // Object === Fn // false
+        // f1.constructor = 1; // 给f1实例增加私有属性
+        // console.log(f1.constructor === Fn) // 1 === Fn // false
+
+
+
+        //----------------------------------------------
+
+        // function Fn(){
+        //     this.a = 1;
+        // }
+        // Fn.prototype = {};
+        // let f1 = new Fn;
+        // f1.__proto__.constructor = Fn; // 给当前原型增加公有属性constructor
+
+        // console.log(f1.constructor === Fn) // true
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        原型的拓展：
+        */
+        // function Fn(){
+        //     this.eat=function(){
+        //         console.log('hh')
+        //     }
+        // }
+        // let f1=new Fn;
+        // let f2=new Fn;
+        // let f3=new Fn;
+        // console.log(f1,f2,f3);
+        // f1.eat()
+        // f2.eat()
+        // f3.eat()
+
+        // Array.prototype.push=function(){
+        //     console.log('hh')
+        // }
+        // let ary=[1,2,3];
+        // ary.push('s');
+        // console.log(ary)
+        // Array.prototype.myPop=function(){
+        //     let last=this[this.length-1];this.length--;
+        //     return last;
+        // }
+        // let ary=[1,2,3];
+        // console.log(ary.pop());
+        // console.log(ary);
+        // console.log(ary.myPop());
+        // console.log(ary)
+
+        //hasOwnProperty:检测当前属性是否是私有属性，他在Object的原型上，只有这个属性是当前对象的私有属性时，才会返回true,反之返回false
+        // let obj={
+        //     name:'suibn'
+        // }
+        // Object.prototype.ss = 10;
+        // console.log(obj.ss);
+        // console.log(obj.hasOwnProperty('ss'))//false
+        // console.log(obj.hasOwnProperty('name'))//true
+
+    // function Fn(){
+    //     this.a = 10
+    // }
+    // Fn.prototype.ss = 10; // 给Fn的原型增加属性ss
+    // let f1 = new Fn;
+    // let f2 = new Fn;
+    // console.log(f1.hasOwnProperty('a')); // true
+    // console.log(f1.hasOwnProperty('ss')) // false
+    // console.log(Fn.prototype.hasOwnProperty('ss')); // true
+
+    // in:检测当前属性名是否属于某个对象，如果属于，返回true，否则返回false(不管这个属性是私有的还是公有的，都返回true)
+    // console.log('a' in f1) // true
+    // console.log('ss' in f1) // true
+    // console.log('gg' in f1) // false
+
+    // 检测私有属性 hasOwnProperty
+    // 检测属性的 in 
+    // 检测公有属性 hasPubProperty
+        // 检测当前属性如果是公有属性就返回true，否则返回false
+
+    // 封装一个方法可以检测当前属性是否是一个公有属性，如果是返回true，否则返回false
+
+    Object.prototype.hasPubProperty = function(value){
+        // 1、检测一个你传进来的属性名的格式对不对
+        let ary = ['number', 'string'];
+        // includes检测当前值在数组里有没有，如果有返回true，如果没有返回false
+        // if(!ary.includes(typeof value)){
+        //     return false
+        // }
+        if(!ary.includes(typeof value)) return false;
+        // 2、检测当前属性名是否是公有属性
+        // 先用in检测一下当前的属性是否是我的属性,然后在检测是否是自己的私有属性，那剩下的就是公有属性了
+        let n = value in this; // 如果返回true，那就说明是我的属性
+        let m = this.hasOwnProperty(value); // 如果返回true那就是我的私有属性
+        return n && !m; // 如果n是true那就去后边的，
+        // if(n === true && m === false){
+        //     return true
+        // }
+        // else {
+        //     return false
+        // }  
+    }
+    let obj = {name:1};
+    let ary4 = [1,2];
+    console.log(ary4.hasPubProperty('push')); // true
+    console.log(obj.hasPubProperty('name')); // false
+    console.log(obj.hasPubProperty('hasOwnProperty')) // true
+    console.log(Object.prototype.hasPubProperty('hasPubProperty')) // false
+    console.log(Object.prototype.hasOwnProperty('hasOwnProperty')) // true
+
+    </script>
+</body>
+</html>

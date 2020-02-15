@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                /* 
+            函数的三种角色：
+                1、普通函数：
+                    1、实参、形参、return、arguments、箭头函数
+                    2、this、变量提升、作用域、闭包
+                    3、形成私有作用域、形参赋值、变量提升、代码执行、作用域是否销毁
+
+                2、构造函数：
+                    1、形成私有作用域、形参赋值、变量提升、默认生成空对象、让this指向这个对象、代码执行、默认 return this、作用域是否销毁
+                    2、构造函数执前要加上new， 如果不传参可以省略执行小括号
+                    3、如果手动return基本值，不会影响构造函数的返回值，但是如果手动return引用值，就会改变构造函数的返回值
+
+                3、普通对象：
+                    1、对象是由键值对组成，属性名是数字或者字符串类型的
+                    name:函数的名字(字符串格式的)
+                    length:函数形参的个数
+
+                    js万物皆对象
+
+                    函数：
+                        类
+                        普通函数
+                    对象：
+                        普通对象
+                        原型
+                        函数
+
+         */
+        //  function fn(name,age){
+
+        //  }
+        //  console.dir(fn)
+        //  console.log(fn.name)
+        //  console.log(fn.length)
+
+        function Fn(){
+            this.x = 10
+        }
+        var f1 = new Fn;
+        var f2 = new Fn;
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            面向对象，
+            对象、类、实例的之间的关系
+            类：类的继承、封装和多态
+            1、原型继承
+         */
+
+         function A(){
+            this.a = 10;
+        };
+        A.prototype.say = function(){
+            console.log('二丫')
+        };
+
+        function B(){
+
+        };
+        B.prototype = new A;
+
+        let f1 = new B;
+        console.log(f1.a) // 10
+
+        // 想让类B的实例继承类A的方法
+        /* 
+        1、类B的实例不仅继承了类A实例的私有属性,而且还继承了类A实例的公有属性
+        2、让类B的原型指向了类A的实例
+         */
+    </script>
+</body>
+</html>

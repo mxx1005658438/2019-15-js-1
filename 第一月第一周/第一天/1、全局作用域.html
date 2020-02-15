@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+   代码的执行过程：
+   浏览器是如何解析代码，以及解析代码的顺序和特点
+   过程：这个解析的过程到底做了什么事
+   首先当我们打开一个页面的时候，就会形成一个全局作用域，为代码执行提供环境
+   整个页面全局的作用域只有一个：存储基本类型的值和变量名，为代码执行提供环境
+   在全局作用域形成之后还会生成一个全局的大对象window
+     全局变量：在全局作用域下声明的变量就是全局变量
+     在全局作用域下var、let、function、const...过的变量就是全局变量
+   var a=12;
+   let b=12;
+   function fn(){}
+     
+    */
+    //let、const和var、function之间的特点
+    //1、在全局作用域下，var和function声明的变量会给window增加键值对，属性名是变量名，属性值是变量名所代表的值，但是let和const不会
+    //2、var和function 可以创建重复的变量，但是let和const不可以
+    //const创建常量时必须赋值
+    //3、var和function有变量提升，但是let和const没有
+    // var ss=10;
+    // console.log(window.ss)
+    // function fn(){};
+    // console.log(window.fn)
+    // let bb=10;
+    // console.log(window.bb)
+    // var a=12;
+    // var a=13;
+    // console.log(a)
+    
+    // let b=12;
+    // let b=13;
+    // console.log(b)//报错
+
+    // b = 12; // 给window增加键值对，
+    // var b = 12; // 不仅给window增加键值对，还会创建一个全局变量b
+
+        var a = b = c = 12; // var a = 12;b =12;c = 12
+        var a,b,c = 12 // var a;var b;var c = 12;
+        var a = 12,b = 12, c = 12; // var a = 12;var b = 12;var c = 12;
+
+    </script>
+</body>
+</html>

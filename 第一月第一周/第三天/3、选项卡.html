@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding:0;
+            margin: 0;
+        }
+        #box {
+            width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        ul {
+            display: flex;
+            list-style: none;
+            position: relative;
+            top:1px
+        }
+        ul li {
+            width: 200px;
+            line-height: 30px;
+            font-size: 20px;
+            border: 1px solid red;
+            margin-right: 5px;
+            color: orangered;
+        }
+        #box div {
+            width: 800px;
+            height: 300px;
+            line-height: 300px;
+            font-size: 30px;
+            color: orangered;
+            border: 1px solid red;
+            display: none;
+        }
+        ul li.active {
+            border-bottom-color:white
+        }
+        #box div.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="navList">
+            <li class="active">孙悟空</li>
+            <li>猪八戒</li>
+            <li>沙悟净</li>
+        </ul>
+        <div class="active">俺老孙来也</div>
+        <div>趁早分家得了</div>
+        <div>二师兄说的对啊</div>
+    </div>
+    <script>
+        let navList = document.querySelectorAll('#navList li');
+        let tabList = document.querySelectorAll('#box div');
+        // console.log(navList,tabList)
+        for (var i = 0; i < navList.length; i++) {
+           navList[i].index = i;    ★？？★
+           navList[i].onclick = function(){
+               // 当用户点击事件的时候，此时for循环早已经结束，结束之后的i的值是3
+            //    console.log(this.index)
+            checked(this.index)
+           }
+        }
+
+        // 常规的清除class名的方法对于选项较少时影响较小，但是当选项卡较多时就会产生明显的影响，因为js是单线程的，清除不完成是无法进行下一步的。
+        /* function checked(index){
+            // 清除所有li和div的class名
+            for (var i = 0; i < navList.length; i++) {
+                navList[i].className = '';
+                tabList[i].className = '';
+
+            };
+            // 给相应的li和div加上class名
+            navList[index].className = 'active';
+            tabList[index].className = 'active';
+        } */
+
+        // 如果选项卡比较多的话，清除每个选项卡样式会花掉大量的时候，这对于用于来说体验是非常糟糕的，所以我们要优化一下，进行定点清除，以提高性能。
+        let ss = 0; // 把上一个li的索引保存下来
+        function checked(index){
+            // 清除有class值的li和div的class名
+                navList[ss].className = '';
+                tabList[ss].className = '';
+          
+            // 给相应的li和div加上class名
+            navList[index].className = 'active';
+            tabList[index].className = 'active';
+            ss = index; // 把ss的值改为当前点击的元素的索引
+        }
+
+    </script>
+</body>
+</html>

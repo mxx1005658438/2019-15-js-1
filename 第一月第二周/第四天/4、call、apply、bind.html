@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        call apply bind:他们Function原型上的方法
+        而且每一个函数都是Function类的实例，所以他们的__proto__都指向Function的原型，所以说每一个函数都可以调用Function原型上的方法（每一个函数都可以调用call apply bind这三个方法 ）
+        他们三个的作用是改变this指向的
+        */
+        // function fn(){
+        //     console.log(this);
+        // }
+        // fn.call();
+             /* 
+            1、在严格模式下，如果call不传参或者传递undeinfed，那fn的this指向就是undefined，如果传递null，那fn的this指向就是null
+            2、在非严格下，call不传参，或者传递undefined，或者传递null，那fn的this都是window
+            3、除了上边的几种情况，那fn里的this你传递啥就是啥
+             */
+         //--------------------------------------
+
+        //  apply：他和call的作用是一样的，都是改变this指向的，call的第二个实参必须是数组或者类数组
+        // function fn(a,b){
+        //     console.log(this,a,b) // {name:1}, 1, 2
+        // }
+        // let obj = {name:1}
+        // fn.apply(obj,[1,2])
+        // Object.prototype.toString.call(1);
+//----------------------------------------
+   /* 
+    bind：bind和call、apply的最终目的是一样的，都是改变函数的this指向的，bind是预处理this，他并不会让fn函数执行，bind方法的返回值是一个改变this之后的新函数
+     */
+    //  function fn(){
+    //      console.log(this)
+    //  }
+    //  let obj = {name:1};
+    // fn = fn.bind(obj);
+    // fn()
+
+    // btn.onclick = function(){
+    //     console.log(this)
+    // }
+    // 把事件里的this改为window
+    // function fn(){
+    //     console.log(this)
+    // }
+    // btn.onclick = fn.bind(window);
+
+    
+
+    </script>
+</body>
+</html>

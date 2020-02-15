@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        构造函数：
+            js的内置类满足不了咱们的编程需求，咱们就得去创建自定义类，
+            构造函数就是创建自定义类的，
+            new 他是js里的关键字，在js里有特殊的意义
+            在普通函数执行之前加上new，那此时的函数就成了构造函数运行模式
+
+            自定义类是哪函数创建的，而且是在普通函数的基础之上创建的  
+         */
+
+         function CreateInfo(name,age){
+             /* 
+             形成私有作用域
+             形参赋值
+             变量提升
+             默认生成一个空对象 {}
+             让当前作用的this指向这个空对象
+             代码执行
+             默认把当前作用域的this return出去
+             作用域是否销毁
+              */
+             this.name= name; // {}.name = name
+             this.age = age; // {}.age = age
+             this.say = function(){
+                 console.log('哈哈')
+             }
+         }
+
+         let person1 = new CreateInfo('chenLei',18); // 构造函数运行
+         // 构造函数的返回值就是当前类的实例
+         // 实例都是对象数据类型的
+
+         console.log(person1) // {name:'chenLei',age:18,say:f}
+
+         let s = CreateInfo('panhong', 18); // 普通函数运行
+         console.log(s)
+
+
+    </script>
+</body>
+</html>
