@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box"></ul>
+    <script>
+        /* 
+        数据的渲染：
+        */
+       let box = document.getElementById('box');
+
+       let ary = [{age:1},{age:2},{age:3},{age:4},{age:5}];
+
+       // 1、appendChild：向元素的末尾增加内容
+       for (var i = 0; i < ary.length; i++) {
+          let li = document.createElement('li');
+          li.innerHTML = ary[i].age;
+          box.appendChild(li);
+       }
+       //循环几次操作几次 耗性能
+       
+      // 2、利用文档碎片实现数据渲染
+      // 把动态生成的li元素增加到文档碎片容器里，最后在把容器里的所有东西放到页面中（只操作一次dom）
+    //   let frg = document.createDocumentFragment(); // 他就是js中的一个dom容器
+    //   for (var i = 0; i < ary.length; i++) {
+    //       let li = document.createElement('li');
+    //       li.innerHTML = ary[i].age;
+    //       frg.appendChild(li);
+    //    }
+    //    console.log(frg)
+    //    box.appendChild(frg) // 只操作的一个dom，引起一次回流
+
+   
+
+    //3、字符串拼接
+    // 利用innerHTML可以识别标签的特点来完成
+
+    // let htmlStr = '';
+    // for (var i = 0; i < ary.length; i++) {
+    //    htmlStr+= '<li>'+ary[i].age+'</li>'
+    // }
+    // console.log(htmlStr)
+    // box.innerHTML = htmlStr
+
+    // 4、模板字符串(ES6)
+    // let htmlStr = ``;
+    // for (var i = 0; i < ary.length; i++) {
+    //    htmlStr+=`<li class="${ary[i].age}">${ary[i].age}</li>`
+    // }
+    // box.innerHTML = htmlStr
+
+    // 在模板字符串出现之前，大家都是利用字符串拼接实现数据渲染
+
+    /* 
+       DOM的回流：如果页面中的标签改变大小，删除标签、增加标签，都会影响其他标签的位置，其他标签的位置都会发生变化，浏览器就会重新计算每一个标签的位置，这样就会非常消耗性能
+
+       DOM的重绘：如果你要改变一个DOM的背景颜色，字体大小，透明度等这个属性，他不会引起DOM的回流，是浏览器只会把这个dom元素进行重新的描绘
+       */
+    </script>
+</body>
+</html>

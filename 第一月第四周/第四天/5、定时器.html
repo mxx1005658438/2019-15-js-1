@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        当浏览器解析js代码的时候，他会先把同步的代码执行完成，然后在执行异步的代码
+        // 浏览器是多线程 他可以执行好多个任务
+
+        定时器  ajax 事件 Promise async wait
+
+        1、当代码执行的时候，当同步代码执行完毕才会执行异步的代码
+
+        2、当js执行的时候分为主任务队列和等待任务队列；主任务队列是同步的，等待任务队列是异步的
+        只有主任务队列的代码执行完成之后才会去执行等待任务队列的代码
+
+        */
+        //    setTimeout(function(){
+        //        console.log(1)
+        //    },2000)
+
+        // function fn() {
+        //     var a = setTimeout(function () { }, 1000);
+        //     console.log(a);//2
+        // }
+        // var timer = setTimeout(function (a) {//1
+        //     // 过了2000ms会让这个函数运行一次；
+        //     console.log(a);//
+        //     return 100;
+        // }, 1000, 3)
+        // clearTimeout(timer);
+        // fn();
+        // console.log(timer);//1
+
+//-----------------------------------
+    //    setTimeout(function () {
+    //         console.log(100);
+    //     }, 15);
+    //     for (var i = 0; i < 10000000; i++) { }
+    //     setTimeout(function () {
+    //         console.log(400);
+        // }, 14);
+
+
+//--------------------------------
+    //   setTimeout(function(){
+    //         console.log(100);
+    //     },20);
+    //     console.log(300);
+    //     for(var i=0;i<10000000;i++){}
+    //     setTimeout(function(){
+    //         console.log(400);
+    //     },19);
+    //     console.log(200);
+//----------------------------------
+       setTimeout(function(){
+            // 其实setTimeout本身是一个同步的函数，他里边的回调函数是异步的
+            console.log(100);
+        },20);
+        console.log(300);
+        for(var i=0;i<10000000;i++){} // 234ms
+        setTimeout(function(){
+            console.log(400);
+        },19);
+        console.log(200);
+
+        // 300 200 100 400
+
+
+
+    </script>
+</body>
+
+</html>

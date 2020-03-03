@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1、---------------------------------------
+    //     function Fn(n, m) {
+    //     n = n || 0;
+    //     m = m || 0;
+    //     this.x = n;
+    //     this.y = m;
+    //     this.getX = function () {
+    //         console.log(this.x);
+    //     }
+    //     return n + m;
+    // }
+    // Fn.prototype.sum = function () {
+    //     console.log(this.x + this.y);
+    // }
+    // Fn.prototype = {
+    //     getX: function () {
+    //         this.x += 1;
+    //         console.log(this.x);
+    //     },
+    //     getY: function () {
+    //         this.y -= 1;
+    //         console.log(this.y);
+    //     }
+    // };
+    // let f1 = new Fn(10, 20);
+    // let f2 = new Fn;
+    // console.log(f1.getX === f2.getX);//false
+    // console.log(f1.getY === f2.getY);//true
+    // console.log(f1.__proto__.getY === Fn.prototype.getY);//true
+    // console.log(Fn.prototype.getX === f2.getX);//false
+    // console.log(f1.constructor);//obj
+    // f1.getX();//10
+    // Fn.prototype.getX();//NaN
+    // f2.getY();//-1
+    // Fn.prototype.getY();//NaN
+    // f1.sum();//un
+
+    //2、-----------------------------------------------------
+    // var name = 'WINDOW';
+    // function A() {
+    //     console.log(1, this.name);
+    //     name = this.name;
+    // };
+    // function B() {
+    //      name = this.name;
+    //     console.log(2, this.name);
+    // };
+    // A.call(B, 10);//1,B
+    // A.call.call.call(B);//2,B
+    // Function.prototype.call(B);//啥也不输出
+    // Function.prototype.call.call.call(B);//2,B
+
+    //3、---------------------------------------------------
+    // var name = "WINDOW";
+    // function fn() {
+    //     console.log(this.name);
+    // }
+    // var obj = {
+    //     name: "OBJ",
+    //     fn: () => {
+    //         console.log(this.name);
+    //     }
+    // };
+    // fn();//"WINDOW"
+    // obj.fn();//"OBJ"
+    // fn.call(obj);//"OBJ"
+    // window.onload = function () { //页面加载完成，事件就会触发
+    //     fn();//"WINDOW"
+    //     obj.fn();//"WINDOW"
+    // };
+    // fn.bind(obj);//bind是预处理this
+
+    //4---------------------------------------------------
+    // var print = function () {
+    //     alert(1);
+    // };
+    // function Fn() {
+    //     print = function () {
+    //         alert(2);
+    //     };
+    //     return this;
+    // };
+    // function print() {
+    //     alert(3);
+    // };
+    // Fn.prototype.print = function () {
+    //     alert(4);
+    // };
+    // Fn.print = function () {
+    //     alert(5);
+    // };
+
+    // print();//1
+    // Fn.print();//5
+    // Fn().print();//2
+    // new Fn.print();//5
+    // new Fn().print();//4
+
+    //- 1、请列举出你所知道的ES6新语法规范（不少于5个）
+    // let console set class  箭头函数
+
+    //- 2、把下面代码基于ES6中的class和其它新语法进行重写
+    // class Modal{
+    //     constructor(element){
+    //     element = element || document;
+    //     this.element = element;
+    //     }
+    //     show(){this.element.style.display = 'block'};
+    //     hide(){this.element.style.display = 'none'};
+    //     static position={ x: 100,
+    //     y: 200};
+    //     static setPosition (x, y){
+    //     this.position = {
+    //         x: x,
+    //         y: y
+    //     };
+    //     }
+    // }
+    // let m = new Model(document.body);
+
+    ///3*编写unique方法，实现如下的效果：先去重后排序*/
+    // let ary = [12, 23, 12, 13, 13, 12, 23, 14, 8];
+    //  function unique(){
+    //     let ss = new Set(ary)
+    //     let newAry=[...ss]
+    //   return  newAry.sort((a,b)=>a-b)       
+    //  }
+    //  console.log(unique(ary))
+     
+    //  console.log([...new Set(ary)])
+    
+    //=> 最后的ary等于[8,12,13,14,23]
+
+//4 /*分析下面的changeThis方法该如何实现？*/
+Function.prototype.changeThis = function changeThis(context,...arg) { 
+        //=>实现你的代码 
+        context=context||window;
+        let res=null;
+        context.fn=this;
+        res=context.fn(...arg);
+        delete context.fn;
+        return res;
+    }; 
+    let obj = {
+        name: 'Alibaba'
+    };
+
+    function fn(x, y) {
+        this.total = x + y;
+        return this;
+    }
+    let res = fn.changeThis(obj, 100, 200); //res => {name:'Alibaba',total:300} 
+
+    
+//5、----------------------------------------
+// let ary=[12,3,4,7,6];
+// 1 console.log(Math.max(...ary))
+// 2 console.log(Math.max.apply(null,ary))
+// ary.sort((a,b)=>a-b);
+// console.log(ary[ary.length-1])
+
+//6、实现工具类方法：toArray函数，给toArray传任意参数，输出以参数为值的数组
+
+// let utils = (function () {
+// function toArray(likeAry) { 
+    // let ary=[];
+    //     try{
+    //        ary= Array.prototype.slice.call(likeAry)
+    //     }catch(e){  
+    //         for(var i=0;i<likeAry.length;i++){
+    //             ary.push(likeAry[i])
+    //         }
+    //     }
+    //     return ary
+// };
+// return {
+//     toArray:toArray
+// };
+// })();
+// let ary = utils.toArray(10, 20, 30);
+// // ary=[10,20,30] 
+// ary = utils.toArray('A', 10, 20, 30);
+// // ary=['A',10,20,30] 
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" style="opacity:0.8"></div>
+    <script>
+        /* 
+        在js里获取元素的css样式
+        */
+        var box = document.getElementById('box');
+        //    box.style.width = '500px'
+        //    console.log(box.style.width) // 获取的是元素行内的属性
+
+
+        //    getComputedStyle // 获取css的计算样式，他是一个方法
+        // 他获取的是一个字符串类型的值，而且可以获取style样式表里的内容，行内的也可以获取
+        //  语法：  getComputedStyle(元素).样式名
+
+        console.log(getComputedStyle(box).height)
+        console.log(getComputedStyle(box).backgroundColor) // 样式名遵循
+        console.log(getComputedStyle(box).opacity) // 样式名遵循
+
+        // console.log(box.currentStyle.height) // 专门给IE浏览器使用的
+    </script>
+</body>
+
+</html>

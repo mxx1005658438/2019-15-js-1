@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+        #box {
+            width: 600px;
+            height: 100px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #box ul {
+            position: absolute;
+            left: 0;
+            width: 1500px;
+        }
+        #box ul li {
+            width: 150px;
+            height: 100px;
+            list-style: none;
+            float: left;
+        }
+        #box ul li img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <ul id="list" style="left:0">
+            <li>
+                <img src="./img/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/1.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/3.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/2.jpg" alt="">
+            </li>
+            <li>
+                <img src="./img/1.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+  let list = document.getElementById('list');
+  let box = document.getElementById('box');
+        // left的最大值900px
+        // move方法每执行一次，就让list的left减小1px
+        function move(){
+            // move执行时，先获取当前list的最新left值
+            let curLeft = parseFloat(list.style.left);
+            curLeft -=1;
+            if(curLeft<= -900){
+                // 当list的右边框和box的右边框重合时，让list的left等于0
+                curLeft =0;
+            }
+            list.style.left = curLeft + 'px';
+        };
+        var timer = setInterval(move,10);
+        box.onmouseover = function(){
+            clearInterval(timer);
+        };
+        box.onmouseout = function(){
+         timer = setInterval(move,10)
+        }
+</script>
+</html>

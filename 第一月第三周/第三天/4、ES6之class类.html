@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        class创建类
+        用class创建的类不能够当做普通函数执行
+         */
+        //  function Fn(m,n){
+        //      let r = m+n;
+        //      this.s = r;
+        //  };
+        //  Fn.prototype.say = function(){
+        //      console.log('哈哈');
+        //  };
+        //  Fn.ss = 100; // 把Fn当做对象，增加键值对
+        //  let f = new Fn(1,2);
+        //  console.log(f); // {s:3}
+        //  console.dir(Fn);
+        //  Fn()
+
+        // class Fn{
+        //     constructor(m,n){
+        //         // 在这里的this.xxxx就是实例的私有属性
+        //         let r = m+n;
+        //         this.s = r;
+        //     };
+        //     say(){ // 给当前实例增加公有方法
+        //         console.log('哈哈');
+        //     };
+
+        //     r = 100; // 也是给当前实例增加私有属性
+
+        //     static ss = 100;// 把Fn当做对象，增加键值对
+
+        // }
+        // Fn.prototype.a = 100;
+
+        // let f = new Fn(1,2);
+        // console.log(f)
+        // Fn()
+//--------------------------------------------
+        // function Fn(n, m) {
+        //     n = n || 0;
+        //     m = m || 0;
+        //     this.m = m;
+        //     this.n = n;
+        // }
+
+        // Fn.prototype.say = function () {
+        //     console.log('say');
+        // };
+        // Fn.eat = function () {
+        //     console.log('eat');
+        // };
+ class Fn{
+     constructor(n,m){
+             n = n || 0;
+             m = m || 0;
+             this.m = m;
+             this.n = n;
+     };
+     say(){
+        console.log('say');
+     };
+    static eat=function () {
+         console.log('eat')
+         }
+ }let f=new Fn(1,2);
+ console.log(f)
+    </script>
+</body>
+</html>

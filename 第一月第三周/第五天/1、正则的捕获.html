@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        1、正则的捕获：
+            test：匹配
+            exec：捕获  
+                1、他的返回值是一个数组
+                    1、数组的第一项是全局捕获到的内容
+                    1.5、从数组的第二项开始就是从左往右依次分组捕获的内容
+                    2、index：代表第一次捕获到内容开始位置的索引 
+                    3、input：原字符串s
+                2、如果正则捕获捕获不到那返回null 
+
+         2、?: 只匹配不捕获
+         3、正则的懒惰型(正则默认只会捕获第一次符合规则的内容)
+            给当前正则加上修饰符g就可以了
+         4、正则拥有贪婪性，他在捕获的时候能多捕获一个就会多捕获一个，绝对不会少捕获  (取消正则的贪婪性：在量词元字符后面加？
+) 
+
+        */
+        //    let str = 'zhuf33eng';
+        //    let reg = /\d{2}/;
+        //    // ["33", index: 4, input: "zhuf33eng", groups: undefined]
+        //    console.log(reg.exec(str))
+
+
+        //()分组捕获
+        //    let str = 'zhufeng3a3';
+        //    let reg = /(\d)([a-z])(\d)/;
+        // //     ["3a3", "a", index: 7, input: "zhufeng3a3", groups: undefined]
+        //    console.log(reg.exec(str))
+
+
+        // 3、正则的懒惰型(正则默认只会捕获第一次符合规则的内容)
+        // 取消正则的懒惰型：给当前正则加上修饰符g就可以了
+        // 原理：正则身上有一个lastIndex属性，你每捕获一次，那lastIndex的值就会被修改为下一次开始捕获的位置
+        // let str = '22d33h44r55';
+        // let reg = /\d{2}/g;
+        // console.log(reg.lastIndex) // 0
+        // console.log(reg.exec(str)) // '22'
+        // console.log(reg.lastIndex) // 2
+        // console.log(reg.exec(str)) // '33'
+        // console.log(reg.lastIndex) // 5
+        // console.log(reg.exec(str)) // '44'
+        // console.log(reg.lastIndex) // 8
+        // console.log(reg.exec(str)) // '44'
+        // console.log(reg.lastIndex) // 11
+        // console.log(reg.exec(str)) // null
+
+        // function getExec(str){
+        //     if(!this.global){
+        //         // 正则身上一个属性global，如果正则由修饰符g，那他的值就是true，如果没有，那他的值就是false
+        //         // 如果这个条件成立，那用户就没有加g
+        //         return this.exec(str);
+        //     };
+        //     let ary = []; // 创建一个数组，准备接收每一次捕获到的内容
+        //     // reg
+        //     let res = this.exec(str); // this就是reg   先捕获一次
+        //     // 不知道循环多少次的循环就使用while
+        //     while(res){
+        //         ary.push(res[0]); // '22' '33' '44' '55'  把捕获到的内容push到数组里
+        //         res = this.exec(str); // 然后在继续捕获，直到捕获到null为止
+        //     };
+        //     return ary
+        // }
+        // // ['22','33','44','55']
+
+        // RegExp.prototype.getExec = getExec;
+        // console.log(reg.getExec(str)) 
+
+        // let num = 1;
+        // while(1){
+        //     console.log(1);
+        //     num++
+        // }
+
+
+
+        // ["22", index: 0, input: "22d33h44r55", groups: undefined]
+
+        //4、正则的贪婪性
+        // let str='1234';
+        // let reg=/\d+?/g
+        // console.log(reg.exec(str))
+
+    </script>
+</body>
+
+</html>

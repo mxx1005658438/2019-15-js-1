@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            Promise就是解决异步回调地域问题的
+         */
+
+        //  function getJSON(url){
+        //      let p = new Promise(function(resolve,reject){
+        //             let xhr  =new XMLHttpRequest;
+        //             xhr.open('get',url,true);
+        //             xhr.onreadystatechange = function(){
+        //                 if(xhr.readyState === 4 && /^2\d{2}$/.test(xhr.status)){
+        //                     resolve(xhr.responseText)
+        //                 }
+        //             }
+        //      });
+        //      return p;
+        //  }
+
+        //  getJSON('data.json').then(function(data){
+        //      return getJSON('data1.json')
+        //  },function(){}).then(function(){
+        //      console.log(1)
+        //  },function(){})
+        //  console.log(1)
+
+        // 1
+
+        // let p = new Promise(function(resolve,reject){
+        //     reject(1)
+        // })
+
+
+        // /* 
+        // catch
+        //  */
+        // // 一般来说不要在then中定义第二个reject函数，一般使用catch
+        // p.then(function(data){
+        //     console.log(data)
+        //     // 如果第一个then的成功回调函数里没有返回promise实例，那下一个then里的函数默认执行第一个
+        //     return new Promise(function(resolve,reject){resolve()})
+        // }).then(function(){
+        //     console.log(4)
+        // }).catch(function(){
+        //     console.log('失败');
+        // })
+
+
+        // console.log(3)
+
+
+
+        // promise的状态
+        let p = new Promise(function (resolve, reject) {
+            // promise的默认状态是pending
+            // 只要调用了resolve，那么状态就从pending-->fulFilled
+            // 只要调用了reject，那么状态就从pending-->rejected
+            // promise的状态一旦发生改就凝固了，不可能在变了
+            resolve(); // 成功
+            reject();
+            console.log(1)
+            // setTimeout(function(){
+            //     reject();
+            // },1000)
+            
+        });
+        p.then(function(){
+            console.log(2)
+        }).catch(function(){
+            console.log(3)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+       扩展剩余运算符(展开、收缩运算符) ...
+        */
+
+        // let ary = [1,2,3,4];
+        // let newAry = [...ary]; // [1,2,3,4] 克隆数组(扩展)
+
+        // function fn(...arg){ // 收缩运算符
+        //     console.log(arg)
+        // }
+        // fn(1,2,3,4,5)
+
+        // let obj = {name:1,age:2};
+        // let newObj = {...obj,ss:100};  // 普通对象的克隆
+        // console.log(newObj)
+
+        //把两个对象合并
+        // let obj={name:1,age:2};
+        // let obj2={ss:1,rr:2};
+        // let newObj={...obj,...obj2}
+        // console.log(newObj);
+        function fn(context,...arg){
+            console.log(context,arg)//1,[2,3,4]
+        }
+        fn(1,2,3,4)
+    </script>
+</body>
+</html>

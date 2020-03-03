@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        promise的all方法:all方法在Promise的自己身上 只有当p1、P2、p3的状态全部为成功态，那么新的promise的实例的状态才是成功态。只要遇到一个失败，就会将这个失败的值传递给当前回调函数
+        */
+  let p1=new Promise(function(resolve,reject){
+      resolve(1)
+  });
+  let p2=new Promise(function(resolve,reject){
+      reject(2)
+  });
+  let p3=new Promise(function(resolve,reject){
+      resolve(3)
+  });
+  let p=Promise.all([p1,p2,p3])
+  p.then(function(data){
+      //他会把成功的数据组成一个数组，传递给这个回调函数
+      console.log(data)
+  }).catch(function(data){
+      //只要遇到一个失败，就会将这个失败的值传递给当前回调函数
+      console.log(data)
+  })
+    </script>
+</body>
+</html>

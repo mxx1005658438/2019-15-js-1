@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        正则的使用:
+        1、匹配：
+           test:检测当前的字符串是否可以用正则匹配到，如果可以匹配到就返回true，反之就是false
+        */
+        // let reg=/^\d{2}&/
+        // let reg1=/^[0-9][0-9]$/
+        
+        // let reg=/^18$/;
+        // console.log(reg.test('189'))
+        // console.log(reg.test('198'))
+
+        // let reg=/^18/;
+        // console.log(reg.test('1818'))
+
+        //2、转义字符\
+        // let reg=/^2.3$/;//.代表任意字符
+        // console.log(reg.test('2.3'))
+        // console.log(reg.test('2e3'))
+        // console.log(reg.test('2@3'))
+
+        // let reg=/^2\.3$/;
+        // console.log(reg.test('2.3'));
+        // console.log(reg.test('2s3'))
+
+        // let str='z\\g';//在字符串里\也是会有特殊的意义
+        // console.log(str)
+
+        // let reg=/\\d/;
+        // console.log(reg.test('6'));
+        
+       /*
+       匹配手机号：
+         1、11位数字
+         2、以1开头
+         3、手机号第二位一般是3到9之间的数字
+       */
+    //    let reg = /^1[3-9]\d{9}$/;
+
+    //3、x|y:x或者y取任意一个
+
+        // let reg = /^18|29$/;
+        // console.log(reg.test('18'))
+        // console.log(reg.test('29'))
+        // console.log(reg.test('189'))
+        // console.log(reg.test('129'))
+        // console.log(reg.test('1829'))
+
+        // let reg = /^(18|29)$/;//小括号可以提高匹配的优先级(只能匹配18或者29)
+        // console.log(reg.test('18'))
+        // console.log(reg.test('29'))
+        // console.log(reg.test('189'))
+        // console.log(reg.test('129'))
+        // console.log(reg.test('1829'))
+    //4、():分组
+       //1、提高匹配的优先级
+       //2、分组引用
+       //3、分组捕获
+
+    //分组引用 
+    // let str='moon' 
+    // let reg=/^[a-z]([a-z])\1[a-z]$/ 
+
+    // let str='abab';
+    // let reg=/^([a-z][a-z])\1$/
+    // console.log(reg.test('cbcb'))
+
+    //分组捕获
+    // let str='ssssssss3aaa';
+    // let reg=/[a-z](\d)[a-z]/;
+    // console.log(reg.exec(str))
+
+    //[]中不允许出现多位数
+    // let reg=/^[21-68]$/
+    // console.log(reg.test('21'));
+    // console.log(reg.test('68'));
+    // console.log(reg.test('8'));
+
+
+
+
+
+    </script>
+</body>
+</html>

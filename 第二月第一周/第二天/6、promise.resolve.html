@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+       Promise.resolve:此方法在Promise自己身上
+       Promise.reject:此方法在Promise自己身上
+       讲一个对象或者字符串转化为一个promise的实例，(他的返回值是一个新的promise实例，而且这个实例是成功的状态)
+        */
+        // let p = Promise.resolve('foo');
+        // p.then(function(data){
+        //     console.log(data)
+        // })
+        //----------------------------
+        // new Primise(function(resolve,reject){
+        //     resolve('foo')
+        // }).then(function(data){
+        //     console.log(data)
+        // })
+
+
+        //  thenable
+        let s = {
+            then: function (resolve, reject) {
+                resolve(40);
+            }
+        };
+
+        // let p1 = Promise.resolve(s); === new  Promise(function (resolve, reject) {
+        //         resolve(40);
+        //     })
+        let p1 = Promise.resolve(s);
+        p1.then(function (value) {
+            console.log(value); // 42
+        }).catch(function(data){
+            console.log('失败',data)
+        });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+          #box {
+              width: 200px;
+              height: 200px;
+              background: red;
+              padding:20px;
+              border: 10px solid green;
+              margin: 30px;
+          }
+
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+        <script src="./jquery-1.11.3.js"></script>
+        <script>
+            
+            /* 
+            css:获取、设置样式
+            offset:获取相对于body的偏移量
+            position:获取相对于父级参照物的偏移量
+            scrollTop():不传参就是获取，传参就是设置
+            height:
+            width:
+            innerHeight(): 等于clientHeight
+            innerWidth(): 等于clientWidth
+            outerHeight()：等于offsetHeight，如果传true那就加上margin的值
+            outerWidth():等于offsetWidth，如果传true那就加上margin的值
+            */
+        //   console.log($('#box').css('width')) 
+        //   $('#box').css('width','500px')
+        //   $('#box').css({
+        //       width:'100px',
+        //       height:'100px',
+        //       background:'green'
+        //   })
+    //    console.log($('#box').offset())
+    //    console.log($('#box').position()) 
+    //    console.log($('#box').height())
+    // console.log($('#box').innerHeight())
+    console.log($('#box').outerHeight(true))
+        </script>
+    </body>
+    </html>
+</body>
+</html>

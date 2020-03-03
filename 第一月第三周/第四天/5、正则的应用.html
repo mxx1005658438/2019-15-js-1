@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            正则的应用例子：
+            有效数字
+            密码
+            邮箱
+            名字
+            身份证号
+         */
+
+         /* 
+         密码：
+         1、密码的位数是6到18位
+         2、由数字、字母、下划线组成
+          */
+        //   let reg = /^\w{6,18}$/;
+
+        //   function fn(str){
+        //     if(str.length<6 || str.length>18){
+        //         alert('面不符合规范');
+        //         return;
+        //     }
+        //     let ary = ['0', '1','a','z','....','_'];
+        //     for (var i = 0; i < str.length; i++) {
+        //        if(!ary.includes(str[i])){
+        //         alert(密码不符合规范);
+        //         return;
+        //        }
+        //     }
+        //   }
+
+
+        /* 
+        名字：
+            陈磊
+            爱新觉罗·溥仪
+            阿诺德·施瓦辛格·施瓦辛格
+            [\u4E00-\u9FA5]
+         */
+        //  let reg = /^[\u4E00-\u9FA5]{2,6}(·[\u4E00-\u9FA5]{2,7}){0,2}$/
+        //  console.log(reg.test('陈磊')); // true
+        //  console.log(reg.test('爱新觉罗·溥仪')); // true
+        //  console.log(reg.test('阿诺德·施瓦辛格·施瓦辛格')); // true
+        //  console.log(reg.test())
+     
+
+      /* 
+           // 邮箱
+           1404294396@qq.com
+           R2s15532892626@163.com
+           */
+        //    let reg = /^[1-9a-zA-Z][0-9a-zA-Z_]{5,14}@[0-9a-z]{2,3}(\.[a-z]{2,3})$/
+        //    console.log(reg.test('1404294396@qq.com'));
+        //    console.log(reg.test('R2s15532892626@163.com'))
+
+        // let reg = /^\w{6,15}@([\da-z]){2,3}(\.[a-z]{2,3})$/; // 陈磊
+
+        // console.log(reg.test('1404294396@qq.com'))
+
+        /* 
+        有效数字
+            2 2.5  3.1415926 -1  +1  -3.5  0  33   44.42328647643648348  
+            1、数字的开头 +-  +和-有可能没有，如果有只可能有一次   [+-]?
+            2、有可能是1位数，也有可能是多位数     一位数：\d    多位数：[1-9]\d+ 
+            3、小数部分   (\.\d+)?
+         */
+         
+        // let reg = /^[+-]?(\d|[1-9]\d+)(\.\d+)?$/
+        // console.log(reg.test('3')) // true
+        // console.log(reg.test('+3.1')) // true
+        // console.log(reg.test('-3')) // true
+        // console.log(reg.test('-3.3.5')) // false
+        // console.log(reg.test('09')) // false
+
+         /* 
+         身份证号：
+            1、18位
+            2、前六位：省市区
+            3、中间八位：出生年月日
+            4、最后四位：
+                前两位：据说是同年同月同日生的排序(所在地公安局的代码)
+                第三位：如果是奇数那就是男女，如果是偶数就是女孩
+                第四位：有能是数字，有可能是X(校验码)
+
+                年：[1-2]\d{3}
+                月：01-12      01-09  10-12  
+                日：01-31      01-09  10-29  30-31  
+
+        
+         */
+         let reg = /^\d{17}(\d|X)$/;
+        let reg1 = /^(\d{6})(\d{8})(\d{2})(\d{1})(\d|X)$/;
+        let reg2 = /^(\d{6})([1-2]\d{3})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])(?:\d{2})(\d{1})(?:\d|X)$/;
+        console.log(reg2.test('11098119980315233X')); // 匹配
+        console.log(reg2.exec('11098119980315233X')) // 捕获就是把符合规则的内容捕获出来 
+        //  ["11098119980315233X", "1998", "03", "15", "3", index: 0, input: "11098119980315233X", groups: undefined]
+        let res = reg2.exec('11098119980315233X');
+        console.log(res[1]+ '年' + res[2]+'月'+res[3]+'日');
+        console.log(res[4]%2 ===0?'女':'男');
+
+    
+    </script>
+</body>
+</html>

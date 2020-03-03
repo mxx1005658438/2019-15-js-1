@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let box = document.getElementById('box');
+        let maxL = document.documentElement.clientWidth - box.offsetWidth-800;
+
+        // 获取需要运动的总距离
+        let duration = 3000; // 运动的总时间
+
+        function linear(t, b, c, d) {
+            // t:已经运动过的时间
+            // b：开始的位置
+            // c:要运动的总距离
+            // d:需要的总时间
+
+            // 此时此刻相对于body应该运动到的位置
+            return (t / d) * c + b
+            // return c / d * t + b
+        }
+        // 有一个跑到全程100米
+        //                        d          b           t      c        x(咱们要求的距离)
+        // 选手一    100米      10s跑完      0米      跑了3s   100米    已经跑到30米的位置了 (相对于body的最左侧)                                                    0+30
+        // 选手二    100米      10s跑完      20米     跑了3s    80米    已经跑到44米的位置了(相对于body的最左侧)                                                     20+24
+
+        // 已经运动的时间/总时间 === 元素应该运动到的位置/总距离
+        // 时间比 === 路程比
+        //  t/d = x/c
+
+        box.onclick = function () {
+            let interval = 0; // 记录我已经执行过的秒数
+            console.time()
+            let timer = setInterval(() => {
+                interval += 17;
+                let curL =  linear(interval,800,maxL,duration)  // 当前元素应该运动到的位置
+
+                if (interval >= duration) {
+                    clearInterval(timer);
+                    console.timeEnd()
+                }
+                box.style.left = curL + 'px'
+            }, 17);
+        }
+    </script>
+</body>
+
+</html>

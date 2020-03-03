@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+         /* 
+        正则捕获之replace
+        */ 
+    //    let str = 'zhufeng33zhufeng33';
+       // 我想把字符串里的33替换为peixun
+    //   str =  str.replace('33', 'peixun').replace('33','peixun');
+    //   console.log(str)
+
+
+
+    // let str = 'zhufeng33zhufeng33';
+    // 我想把里面的zhufeng替换为zhufengpeixun
+    // str = str.replace('zhufeng', 'zhufengpeixun').replace('zhufeng', 'zhufengpeixun');
+    // 'zhufengpeixunpeixun33zhufeng33'
+
+    // str = str.replace(/zhufeng/g, 'zhufengpeixun');
+    // console.log(str) // 'zhufengpeixun33zhufengpeixun33'
+
+
+    // let str = 'zhufeng33zhufeng33';
+    // str = str.replace(/zhufeng/g,function(a,b,c){
+    //     // console.log(arguments)
+    //     console.log(a,b,c)
+    //     // ['zhufeng']
+    //     /* 
+    //     当前正则捕获几次,回调函数就会执行几次
+    //     正则每一次捕获到的内容都会以实参的方式传递给当前执行的回调函数
+    //     回调函数的返回值会覆盖每一次捕获到的内容
+    //     */
+    //    return 'zhufengpeixun'
+    // })
+    // console.log(str) // 'zhufengpeixun33zhufengpeixun33'
+
+   // 把下列数字转成下面数组中的数字大写汉字
+   // 将数字转成下面的大写汉字
+
+        // var str ="20200114";
+        // var ary = ["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"];
+
+        // let ss = str.replace(/\d/g,function(item){
+        //     let ss = ary[item]; // 利用每一次捕获到的内容作为索引去ary里取对应的汉字
+        //     return ss // 把当前捕获到的内容替换为对应的汉字
+        // })
+
+        // let ss = str.replace(/\d/g,item=>ary[item]);
+        // replace的返回值是一个新字符串，每一次回调函数return的值会把捕获位置的内容进行覆盖
+        // console.log(ss) // '20200114'
+      
+
+     let str = 'good good study day day up';
+        
+        // // 把每一个单词的首字母大写
+        // let reg = /\b[a-z]+\b/g;
+        let reg = /\b([a-z])[a-z]*\b/g;
+
+        str = str.replace(reg,function(item,first){
+            first = first.toUpperCase(); // 把单词的首字母转大写
+            item = item.substring(1); // 把每一个单词的开头字母去掉
+            return first + item; // 把转大写的字母和截取之后的字母拼接到一起然后在把当前捕获到的内容进行替换
+        })
+        // console.log(str)
+        // console.log(reg.exec(str))
+        // console.log(reg.exec(str))
+        // console.log(reg.exec(str))
+
+    let str = 'good study';
+    let reg = /\b[a-z]+\b/g;
+    console.log(reg.exec(str)) // 'good'
+    console.log(reg.exec(str)) // 'study'
+     
+        
+        
+    </script>
+</body>
+</html>

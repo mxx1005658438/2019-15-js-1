@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 500%;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: red;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+            font-size: 20px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">0</div>
+    <script>
+        let box = document.getElementById('box');
+        let num = 1;
+        function fn(){
+            console.log(1)
+        }
+        function throttle(fn, wait) {
+            var lastTime = 0; // 10000  11000
+            return function () {
+                var nowTime = Date.now(); //获取当前时间距离1970年1月1号凌晨的时间毫秒差 // 11001;
+                
+                if (nowTime - lastTime >= wait) {
+                    fn();
+                    lastTime = nowTime;
+                }
+            }
+        }
+        window.onscroll = throttle(fn, 1000);
+
+    </script>
+</body>
+
+</html>

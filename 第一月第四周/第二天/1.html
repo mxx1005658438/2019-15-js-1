@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fadeIn(img){
+            img.style.opacity=0.05;
+            let cur=parseFloat(img.style.opacity);
+            let timer=setInterval(function(){
+                cur+=0.05;
+                img.style.opacity=cur;
+                if(cur>=1){
+                    clearInterval(timer)
+                }
+            },50)
+        }
+
+
+    </script>
+</body>
+</html>

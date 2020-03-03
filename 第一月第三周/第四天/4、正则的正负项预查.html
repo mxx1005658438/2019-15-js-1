@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /* 
+        正则的正负向预查
+            (?:):只匹配，不捕获
+            (?=):正向预查
+            (?!):负向预查
+         */
+        //  let reg = /zhufeng/;
+        // console.log(reg.test('zhufengrrr')) // true
+
+
+        // let reg = /zhufeng(?=peixun)/; //zhufeng后面必须跟peixun
+        // console.log(reg.test('zhufengpeixun')) // true
+        // console.log(reg.test('zhufengpei')) // false
+
+        let reg = /zhufeng(?!peixun)/; //zhufeng后面必须不跟peixun
+        console.log(reg.test('zhufengpeixun')) // false
+        console.log(reg.test('zhufengpei')) // true
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+       let box = document.getElementById('box');
+       let duartion = 3000;
+       function linear(t,b,c,d){
+            // t:已经运动过的时间
+            // b:开始的位置
+            // c:需要运动的总距离
+            // d:需要的总时间
+
+            // 当前需要运动到的位置(相对于最左边来说的)
+            return c/d*t+b
+       }
+
+       /* 
+       curEle:需要运动的元素
+       target：需要运动到的目标的位置
+       duration：需要运动的总时间
+       callBack：回调函数
+        */
+       function move(curEle,target,duration,callBack){
+            let begin = {}; // 记录开始的位置
+            let change = {}; // 记录运动的总距离
+            for(var key in target){
+                begin[key] = parseFloat(getComputedStyle(curEle)[key]);// 记录开始的位置
+
+                change[key] = target[key] - begin[key];
+            }
+            let interval = 0;
+            let timer = setInterval(function(){
+                interval+=17;
+                for(var key in change){
+                    let cur = linear(interval,begin[key],change[key],duartion);
+                    curEle.style[key] = cur + 'px';
+                }
+                if(interval>=duartion){
+                    clearInterval(timer);
+                    callBack ? callBack() :null;
+                }
+            },17)
+
+       }
+       move(box,{left:500,height:200},duartion,function(){
+           box.style.background = 'green'
+       })
+    </script>
+</body>
+</html>

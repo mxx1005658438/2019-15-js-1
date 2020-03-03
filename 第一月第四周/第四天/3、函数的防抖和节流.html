@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            height: 500%;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: red;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+            font-size: 20px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">0</div>
+    <script>
+        // let box = document.getElementById('box');
+        // let num = 1;
+
+        function debounce(fn,wait) {
+            // 作用域不销毁
+            let timer = null;
+            return function(){
+                let that = this;
+                    // this-->点前点击的元素
+
+                // 当前函数执行的时候会把上一次的定时器清空，然后在开一个定时器，
+                // 直到最后用户不点击了，剩下最后的那一个定时器在规定的时间到了之后才会执行
+                clearTimeout(timer);
+                // this--> box
+                timer = setTimeout(()=>{
+                    // this-->当前点击的元素
+                    // 箭头函数没有this，向上一级作用域获取this
+                    // console.log(this)
+                    fn.call(that);
+                },wait);
+            }
+        }
+
+        // function add(){
+        //     console.log(this) // box
+        //       box.innerHTML = num++;
+        // };
+
+        //     // box.onclick = add;
+        // box.onclick = debounce(add,1000);
+        // box.onmouseover = debounce(add,1000);
+        // 假设用户一秒钟点击了20次，咱们那只让他发送最后那一次请求
+        // 防止用户恶意的频繁点击，n秒内只让他触发一次
+
+
+
+        // 节流：咱们的水龙头，如果开的太大了，谁流的就多
+        // 解决：把水龙头头开小一点，就ok了
+
+        function fn() {
+            console.log(1)
+        }
+
+        function throttle(fn, wait) {
+            // 记录上一次函数触发的时间
+            var lastTime = 0; // 10001
+            return function () {
+                // 记录当前函数触发的时间
+                var nowTime = Date.now(); //获取当前时间距离1970年1月1号凌晨的时间毫秒差;
+                // 如果当前时间减去上一次执行的时间大于你规定的时间了，那就让函数执行
+                if (nowTime - lastTime >= wait) {
+                    fn();
+                    lastTime = nowTime;
+                }
+            }
+        }
+        window.onscroll = throttle(fn,100); // 节流
+        // window.onscroll = debounce(fn,1000); // 防抖
+        // window.onscroll = fn;
+    </script>
+</body>
+
+</html>

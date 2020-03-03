@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+             /* 
+        sort的原理
+        */
+    //    let ary = [12,34,12,343,67,78,4,43,11,23,4,4];
+    //    ary.sort(function(a,b){
+    //        console.log(a,b) // 34 12   a就是后一项   b就是前一项
+    //        return a-b;
+    //        // 如果a-b大于0，那就交换位置
+    //    })
+       let newAry = [{age:23},{age:14},{age:21},{age:1}];
+    //    newAry.sort(function(a,b){
+    //         // console.log(a,b) // a就是后一项 b就是前一项
+    //         return a.age-b.age
+    //    })
+
+    newAry.sort(({age:a},{age:b})=>a-b)
+       console.log(newAry)
+    </script>
+</body>
+</html>

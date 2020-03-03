@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            // 防抖和节流：
+            防抖：就是在指定的时间内只能触发一次，经常用于搜索框
+            节流：每隔一段时间执行一次，稀释执行的频率 window.onscroll
+            // sousuo
+
+            同步和异步：
+            定时器是异步的
+            js是单线程的，浏览器是多线程的
+
+            // 事件循环机制：
+                在执行栈中，线程会从上到下依次解析代码，如果遇到同步的任务就会立即执行，同步任务没有执行完成，不能向下执行，遇到异步任务，他会把这个任务放到等待任务队列中,继续执行执行栈中同步的任务，当执行栈中同步的任务执行完成之后，把执行栈清空，再去等待任务队列中拿到正在等待的任务在进行执行(执行栈中)
+
+                // 等待任务队列的任务分为两种：一个是微任务，一个是宏任务(先执行微任务，后执行宏任务)
+
+        */
+
+        // for (var i = 0; i < 100000; i++) {
+           
+        // }
+        // setInterval(function(){},1000)
+        // console.log(1)
+
+
+        let p = new Promise(function(reslove,reject){
+                // setTimeout(function(){
+                    reject(1)
+                // })
+        })
+
+        p.then(function(data){console.log(1)},function(){console.log('失败')});
+        console.log(2)
+
+        // ES6？
+
+    </script>
+</body>
+</html>

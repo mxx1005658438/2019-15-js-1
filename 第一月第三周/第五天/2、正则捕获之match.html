@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        正则捕获之match
+        match是字符串原型上的一个方法
+        test和exec是正则原型上的方法
+        1、如果正则不加修饰符g那match返回的结果和exec返回的结果一样
+        2、如果正则加上修饰符g，那返回的结果就是一个数组，数组里存放的就是捕获到的所有内容
+        3、他不能够捕获分组的内容
+        */
+        // let str='www12www34www56';
+        // let reg=/\d{2}/g;
+        // console.log(str.match(reg))
+
+        // let str='ww{34}ww{56}';
+        // let reg=/{\d{2}}/g
+        // console.log(str.match(reg))
+        // console.log(reg.exec(str))
+
+    </script>
+</body>
+</html>

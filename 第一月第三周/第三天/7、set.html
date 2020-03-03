@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            /* 
+        Set数据结构，不是数据类型
+        是一个构造函数(内置类)
+        Set传入的参数必须是一个数组或者类数组
+        Set传入的实例不允许重复
+         */
+
+        //  let ss = new Set([1,2,3,4,5,1,2,3,4])
+        //  console.log(ss)
+
+         // 利用Set完成数组去重
+         //let ary = [1,2,3,4,5,1,2,3,4];
+        //  let ss = new Set(ary); // {1,2,3,4,5}
+
+        //  let newAry = [...ss]
+        //  console.log(newAry)
+        // console.log([...new Set(ary)]) // 数组的去重
+      
+          // // Set实例的增删清空
+        // let ss  = new Set([1,2,3,4]);
+        // console.log(ss) // {1,2,3,4}
+        // ss.add(666) // 增加
+        // ss.delete(3) // 删除
+        // ss.clear() // 清空
+        // ss.has(4) // 检测当前值在ss里有没有，如果有就返回true，如果没有就返回false
+        // console.log(ss) 
+        // console.log(ss.size) // 4 //size返回的个数
+        // console.log(ss.has(4)) // fasle
+
+        // let ss  =new Set('asdfas');
+        // console.log(ss)
+
+        //-------------------------------------------
+
+        // Array.from() // 把类数组转化为数组
+        // Array.of() // 把一组数转化为数组
+
+        // function fn(){
+        //     console.log(Array.from(arguments)) // [1,2,3]
+        // }
+        // fn(1,2,3)
+        // console.log(Array.of(...new Set([1,2,3,4,1,2,3,4]))) // 数组的去重
+
+//---------------------------------------------
+        // for循环
+        // for in循环
+        // for of循环
+
+        // for(let i of 'asd'){
+        //     console.log(i)
+        // }
+
+        // for(let i of ['a','s','d']){
+        //     console.log(i)
+        // }
+
+        //--------------------------------------
+        // Object.keys() // 把对象的全部属性名放到一个数组里
+        // Object.values()// 把对象的全部属性值放到一个数组里
+        // Object.create() // 创建一个一个空对象
+
+        // let obj = {name:1,age:2};
+        // console.log(Object.keys(obj))
+        // console.log(Object.values(obj))
+        // console.log(Object.keys(obj).includes('na')) // 检测对象的某一个属性名有没有，有就返回true，没有返回false
+
+    </script>
+</body>
+</html>

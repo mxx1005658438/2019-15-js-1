@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box"></ul>
+   <script>
+// function fn1() {console.log(1)};
+// function fn2() {console.log(2)}; 
+// fn1.call(fn2); //1 
+// fn1.call.call(fn2); //
+// Function.prototype.call(fn1); //
+// Function.prototype.call.call(fn1); //
+// /*
+// fn1.call(fn2)
+
+// context---fn2  this---fn1
+// context.fn=this   fn2.fn=fn1
+// context.fn()    f1()
+
+// fn1.call.call(fn2);
+
+// context---fn2  this---fn1.call--call
+// context.fn=this  fn2.fn()  call()
+// context---window  this---fn2
+// context.fn()  window.fn()  fn2()
+
+// */
+
+// function toArray(likeAry){
+//     let ary=[];
+//     try{
+//         ary=Array.prototype.slice.call(likeAry);
+//     }catch(e){
+//         for(var i=0;i<likeAry.length;i++){
+//             ary.push(likeAry[i])
+//         }
+//     }
+//     return ary
+// }
+       /*
+       类数组转数组
+       排序sort
+       利用shift和pop删除数组的开头和结尾
+       把数组的每一项加起来，然后在除以数组的length;
+       利用toFixed(2)实现保留两位小数
+       */
+    //    function mean(){
+    //        let ary=utils.toArray(arguments);
+    //        ary.sort((a,b)=>a-b);
+    //        ary.shift();
+    //        ary.pop();
+    //        let total=null;
+    //        for(var i=0;i<ary.length;i++){
+    //            total+=ary[i];
+    //        }
+    //        return (total/ary.length).toFixed(2)
+    //    }
+    //    console.log(mean(12,3,4,56,78,99))
+
+// let ary=[13,42,67,45,67,89]
+// ary.sort(function(a,b){
+//     console.log(a,b)
+//     return a-b;
+// })
+
+// let ary=[12,34,5,6,67,67,78];
+// console.log(Math.max(...ary))
+// ary.sort((a,b)=>a-b);
+// console.log(ary[ary.length-1])
+// console.log(Math.max.apply(null,ary))
+// for(var i=0;i<ary.length-1;i++){
+//     if(ary[i]>ary[i+1]){
+//         let  item=ary[i];
+//         ary[i]=ary[i+1];
+//         ary[i+1]=item
+//     }
+// }
+// console.log(ary[ary.length-1])
+// let box=document.getElementById('box');
+// let ary=[{age:1},{age:2},{age:3}]
+// for(var i=0;i<ary.length;i++){
+//     let li=document.createElement('li');
+//     li.innerHTML=ary[i].age;
+//     box.appendChild(li)
+// }
+
+// let frg=document.createDocumentFragment();
+// for(var i=0;i<ary.length;i++){
+//     let li=document.createElement('li');
+//     li.innerHTML=ary[i].age;
+//     box.appendChild(li)
+// }
+// console.log(frg);
+// box.appendChild(frg)
+
+// let htmlStr='';
+// for(var i=0;i<ary.length;i++){
+//     htmlStr='<li>'+ary[i].age+'</li>';
+// }
+// box.innerHTML=htmlStr
+
+// let htmlStr=``;
+// for(var i=0;i<ary.length;i++){
+//     htmlStr+=`<li class="${ary[i].age}" >${ary[i].age}</li>`
+// }
+// box.innerHTML=htmlStr
+// let ary=[1,2,3,4]
+// let newAry=[...ary]
+// console.log(newAry)
+//  function fn(...arg){
+//      console.log(arg)
+//  }
+//  fn(1,2,3,4,5)
+// let obj={name:1,age:23}
+// let newObj={...obj,ss:5}
+// console.log(newObj)
+// let obj={name:1,age:2};
+// let obj2={ss:1,dd:2}
+// let newObj={...obj,...obj2}
+// console.log(newObj)
+// let {name,age}={name:1,age:2}
+// console.log(name,age) 
+// let {name,friends:{s,w:{r}}}={name:'dingZhenKang',friends:{s:'1',w:{r:9}}}
+// console.log(s,r)
+// let ary=[1,2,3,4,[6,9]];
+// let [,,n,,[m]]=ary
+// console.log(n,m)
+
+   </script> 
+</body>
+</html>

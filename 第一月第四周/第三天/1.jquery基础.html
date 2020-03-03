@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: #f40;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+        /*
+       jQuery是一款用原生js封装的内库
+        他里面封装了大量的方法
+        */
+       /*
+       jq的版本
+       1.xxx:兼容所有浏览器
+       2.xxx:不兼容IE浏览器，针对移动端做出好多改变，zepto(专门针对移动端的库)
+       3.变化就不大了，vue react angular
+
+       1、看api文档
+       2、练习写项目
+       3、试着看源码
+       */
+  let box=document.getElementById('box');
+  console.log($('#box'))
+  console.log($('#box').offset().top)
+  console.log($('#div'))
+    </script>
+</body>
+</html>

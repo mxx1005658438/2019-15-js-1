@@ -32,7 +32,7 @@
         // let f=obj.fn;
         // f()//window
         /*3、自执行函数里的this就是window*/
-        // (function(){
+        // (function(){   
         //     console.log(this)
         // })()
         /*4、给元素绑定事件行为，那事件里的this就是当前元素本身*/
@@ -77,26 +77,26 @@
         //     num: 2,
         //     fn: function () {
         //         var num = 1;
-        //         console.log(this); 
+        //         console.log(this); //{name:2,fn:f}
         //         (function (num) {
-        //             console.log(this.num + num); 
+        //             console.log(this.num + num); //102
         //         })(this.num);
         //     }
         // }
-        // obj.fn();
+        // obj.fn();//
         // var f = obj.fn;
-        // f();
+        // f();//window 200
 
-        // var num = 1; // 7
+        // var num = 1; //6 7
         // var obj = {
-        //     num: 0,
+        //     num: 0,//
         //     fn: function () {
-        //         num = 6;//7
+        //         num = 6;
         //         // this-->obj
         //         (function (num) { 
         //             ++this.num;
-        //             num++;//6
-        //             console.log(num); //  1
+        //             num++;
+        //             console.log(num); //1
         //         })(this.num);
         //     }
         // }
@@ -123,20 +123,20 @@
     //     console.log(f());//
     //     console.log(g());//
 
-    function g1() {
-        this.g="gg"//g1
-    };
-    var obj4= {
-        g1:g1,
-        gg:function () {
+    // function g1() {
+    //     this.g="gg"//g1
+    // };
+    // var obj4= {
+    //     g1:g1,
+    //     gg:function () {
 
-            g1();
-        }
-    };
-    obj4.g1();
-    obj4.gg();
-    console.log(obj4);//
-    console.log("g" in window); //true
+    //         g1();
+    //     }
+    // };
+    // obj4.g1();
+    // obj4.gg();
+    // console.log(obj4);//g:gg gg:f g1:f
+    // console.log("g" in window); //true
 
      
     </script>

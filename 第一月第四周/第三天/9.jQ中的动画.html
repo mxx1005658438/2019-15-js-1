@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <button id="btn">按钮</button>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+
+        //   $('#btn').click(function(){
+        //       $('#box').show(2000,function(){console.log(1)})
+        //   })
+
+        // $('#btn').click(function(){
+        //       $('#box').toggle(2000,function(){console.log(1)})
+        //   })
+
+        // $('#btn').click(function () {
+        //     $('#box').slideToggle(2000, function () {
+        //         console.log(1)
+        //     })
+        // })
+
+        // $('#btn').click(function () {
+        //     $('#box').fadeToggle(5000, function () {
+        //         console.log(1)
+        //     })
+        // })
+
+
+            $('#btn').click(function () {
+                $('#box').animate({
+                    width:'500px',
+                    height:'500px',
+                    opacity:0.1
+                },4000, function () {
+                    $('#box').css('background','orange')
+                })
+            })
+
+        
+    </script>
+</body>
+
+</html>

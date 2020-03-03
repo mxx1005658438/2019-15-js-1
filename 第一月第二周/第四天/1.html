@@ -7,21 +7,14 @@
 </head>
 <body>
     <script>
-   function fn(a,b){
-    console.log(this,1,2);
-    return 'ss';
-   }
-   let obj={name:1};
-   function myCall(context,...arg){
-    context=context||window;
-    let res=null;
-    context.fn=this;
-    res=context.fn(...arg);
-    delete context.fn;
-    return res;
-   }
-   Function.prototype.myCall=myCall;
-   console.log(fn.myCall(obj,1,2))
+Object.prototype.hasPubProperty=function(value){
+    let ary=['number','string'];
+    if(!ary.includes(typeof value));
+    return false;
+    let n=this.value;
+    let m=this.hasPubProperty(value);
+    return n && !m;
+}
     </script>
 </body>
 </html>

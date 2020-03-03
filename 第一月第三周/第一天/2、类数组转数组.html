@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        类数组：
+        元素集合
+        arguments
+        */
+        // let divs=document.getElementsByTagName('div');
+    //  function fn(){
+    //      let ary=[];
+    //      //1、利用for循环
+    //      for(var i=0;i<arguments.length;i++){
+    //          console.log(arguments[i])//代表实参的每一项
+    //          ary.push(arguments[i]);
+    //      }
+    //      console.log(ary.push)
+    //      //2、利用slice克隆的特点
+    //      ary=Array.proptotype.slice.call(arguments)//这个方法在IE8下不兼容
+    //      console.log(ary)
+    //  }
+    
+
+//代码执行的时候先执行try里面的代码，如果try里面的代码没有问题，那catch里的代码就不执行了，如果try里的代码有问题，那就执行catch里的代码，并且可以输出报错信息
+
+// try{
+//     console.log(a);
+// }catch(e){
+//     console.log(1)
+// }
+
+
+//     //类数组转数组
+        // function toArray(likeAry){
+        //     let ary = [];
+        //     try{
+        //         ary = Array.prototype.slice.call(likeAry);
+        //     }catch(e){
+        //         for (var i = 0; i < likeAry.length; i++) {
+        //             ary.push(likeAry[i])
+        //         }
+        //     }
+        //     return ary
+        // }
+//     //高级单例模式
+//     let utils = (function () {
+//     function toArray(likeAry) {
+//         let ary = [];
+//         try {
+//             ary = Array.prototype.slice.call(likeAry);
+//         } catch (e) {
+//             for (var i = 0; i < likeAry.length; i++) {
+//                 ary.push(likeAry[i])
+//             }
+//         }
+//         return ary
+
+//     }
+    
+//     return {
+//         toArray:toArray
+//     }
+// })()
+    </script>
+</body>
+</html>

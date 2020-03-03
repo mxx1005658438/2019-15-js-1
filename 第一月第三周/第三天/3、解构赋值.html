@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        解构赋值：
+        在保证左右结构一样的前提下，把右边的值可以赋值给左边的变量
+        */
+        // let {name,age}={name:1,age:2};
+        // console.log(name,age);
+        //在当前作用域下创建两个变量，并且把右边对应的值赋值给左边的变量
+    //     let {name,age:{r}}={name:1,age:{r:9}};
+    //    console.log(name,r)
+
+    // let {name,friends:{s,w:{r}}} = {name:'dingZhenKang',friends:{s:'1',w:{r:9}}}
+
+    //数组的解构赋值
+    //数组的解构赋值是按照顺序来的
+    // let ary = [1,2,3,4,[6,8]];
+    // // 去结构3和8
+    // let [,,n,,[,m]] = ary
+    // console.log(n,m)
+
+    // var x = 1;
+    // var y = 2;
+    // [x,y]=[y,x];
+    // console.log(x,y)
+    </script>
+</body>
+</html>

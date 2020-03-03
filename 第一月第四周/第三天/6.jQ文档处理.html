@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>11</div>
+    <div>22</div>
+    <p></p>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+        /* 
+        文档处理
+        append:向元素末尾插入元素
+        a.appendTo(b):把a添加到b里边
+        prepend向元素开头插入元素 
+        a.prependTo(b):把a添加到b里边
+        wrap:拿指定的元素把元素包裹起来
+        remove:移除指定的元素
+        empty()：清空元素
+        */
+        $('div').append('<li>666</li>') 
+        $('div').click(function(){
+            console.log(1)
+        })
+        // $('p').wrap('<div></div>')
+        $('div').remove()
+    </script>
+</body>
+</html>

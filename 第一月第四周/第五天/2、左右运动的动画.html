@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding:0;
+            margin: 0;
+        }
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        button {
+            width: 80px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            top:200px
+        }
+        #left {
+            left: 30px;
+        }
+        #right {
+            left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" style="left:0"></div>
+    <button id="left">往左走</button>
+    <button id="right">往右走</button>
+    <script src="../第三天/jquery-1.11.3.js"></script>
+    <script>
+    //   let winH=document.documentElement.clientWidth-$('#box').outerWidth();
+      
+    //   $('#right').click(function(){
+    //       $('#box').stop().animate({left:winH},3000,'linear');
+    //   })
+    //   $('#left').click(function(){
+    //     $('#box').stop().animate({left:0},3000,"linear");
+    //   })
+
+
+        let box = document.getElementById('box');
+        let left = document.getElementById('left');
+        let right = document.getElementById('right');
+        let winH = document.documentElement.clientWidth - box.offsetWidth;
+       //获取元素的总长度
+        let timer;
+        right.onclick = function () {
+            clearInterval(timer)
+            timer = setInterval(function () {
+                let curL = parseFloat(box.style.left);
+                curL += 5;
+                if (curL >= winH) {
+                    clearInterval(timer)
+                    box.style.left = winH + "px"
+                }
+
+                box.style.left = curL + 'px'
+            }, 10)
+        }
+
+        left.onclick = function () {
+            clearInterval(timer)
+            timer = setInterval(function () {
+                let curL = parseFloat(box.style.left);
+                curL -= 5;
+                if (curL <= 0) {
+                    clearInterval(timer)
+                    box.style.left = 0 + 'px'
+                }
+
+                box.style.left = curL + 'px'
+            }, 10)
+        }
+
+    </script>
+</body>
+</html>

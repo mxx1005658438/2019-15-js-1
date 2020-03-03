@@ -109,9 +109,33 @@
 		</script>
     </body>
     <script>
-    window.onload=function(){
-        var left=document.getElementById('left');
-        var btn=document.querySelector('#content')
-    }
+   
+      let left=document.getElementById('left');
+      let right=document.getElementById('right'); 
+	  let btn=document.getElementById('btn');
+	  let text=document.getElementById('text');
+	  let value=left.value.length;
+	  let timer=null;
+	  let flag=false;//防止文字移动完之后重复点击
+	  btn.onclick=function(){
+		  if(flag){
+			  return;
+		  }
+		  timer = setInterval(function(){
+					/* 
+					左边的文字不断减少
+					右边的文字不断增加
+					中间的文字数量要不断变化
+					 */
+					 let value = left.value; // ''
+					 right.innerHTML+=value[0]; // 给右边累加文字
+					 left.value = value.substring(1); // 给左边减文字
+					 text.innerHTML = right.innerHTML.length + '/'+values; // 改变中间不断变化的数量
+					 if(values === right.innerHTML.length){
+						clearInterval(timer);
+						flag = true;
+					 }
+				},20)
+			}
     </script>
 </html>

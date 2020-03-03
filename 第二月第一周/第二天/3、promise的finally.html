@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        promise的finally：不管是成功态还是失败都会执行的回调函数
+        */
+        // try{
+        //     console.log(1)
+        // }catch(e){
+        //     console.log(2)
+        // }finally{
+        //     console.log(3)
+        // }
+        // console.log(4)
+
+        let p=new Promise(function(resolve,reject){
+                resolve()
+        })
+      p.then(function(){
+          console.log(1)
+      }).catch(function(){
+          console.log(55)
+      }).finally(function(){
+          //异步的
+          console.log(1000)
+      })
+      //同步的
+      console.log(2000)
+    </script>
+</body>
+</html>

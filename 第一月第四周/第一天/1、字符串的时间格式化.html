@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        字符串的时间格式化
+        let time = '2020-2-25 09:58:15'
+        将其转化为 '2020年02月25日 09时58分15秒'
+         */
+         let time = '2020-2-25 09:58:15';
+
+function formatTime(tempLate = '{0}年{1}月{2}日 {3}时{4}分{5}秒') {
+    /* 
+    1、利用match获取字符串里的时间放到一个数组里
+    2、写一个模板，模板里要包含年月日时分秒的索引
+    3、利用replace方法捕获到模板里的索引，然后利用相对应的索引在数组里取代对应的日期
+    4、不要忘记return 一个处理好的时间去覆盖之前的值
+     */
+    let dataAry = this.match(/\d+/g);
+    // ["2020", "2", "25", "09"]
+    // let tempLate = '{0}年{1}月{2}日 {3}时{4}分{5}秒';
+    // '{0}年{1}月{2}日'
+    tempLate = tempLate.replace(/\{(\d)\}/g, function () {
+        let [, index] = arguments;
+        console.log(dataAry[index]);
+        let time = dataAry[index] || '00'; // 如果捕获不到对应的时间，那默认为 '00';
+        time = time.length >= 2 ? time : '0' + time; // 时间不足两位补零
+        return time;
+    })
+    return tempLate;
+
+}
+String.prototype.formatTime = formatTime;
+console.log(time.formatTime('{0}年{1}月 {3}时'))
+// '2020年02月 09时'
+</script>
+</body>
+</html>

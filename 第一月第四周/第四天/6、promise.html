@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        Promise类
+        他是ES6新增的一个自定义的类，他是专门用来解决异步回调地域问题的，他可以将异步的代码以同步的方式展现出来
+         */
+        // 登录注册：登录自己的账号
+        // 当你在淘宝登录你的个人账号的时候，前端第一次发送请求把你的账号信息发送给后台，然后后台返回你的个人信息和id，然后前端拿着第一次请求来的个人信息再次发送请求把你的购物车和浏览记录等信息再次请求来，这样就会出现第二次请求要等到第一次请求成功之后再去发送，就会出现嵌套问题
+        // $.ajax({
+        //     url: 'www.dhss',
+        //     success: function (data) {
+        //         // data就是你请求来的个人信息
+        //         $.ajax({
+        //             url: 'www.dsf',
+        //             success: function (data2) {
+        //                 $.ajax({
+        //                     url: 'xxx',
+        //                     success: function (data3) {
+        //                     }
+        //                 })
+        //             }
+        //         })
+        //     }
+        // })
+
+        let p = new Promise(function (resolve, reject) {
+            // 一般情况下这里存放的是一个异步的代码
+            // 当异步的代码操作成功之后会调用resolve执行，失败会调用reject执行
+            setTimeout(() => {
+                resolve(123)
+            }, 3000);
+        })
+
+        p.then(function (data) {
+            console.log('成功')
+        },function(){
+            console.log('失败')
+        })
+
+        // Promise的状态：Pending(进行中)  fulfilled(成功态)  rejected(失败态)
+        // 状态一旦发生改变，就凝固了，不会再次改变
+
+        // 如果想链式调用then方法，那么需要在回调函数中在返回一个Promise的实例，这次的Promise实例的状态会影响下一个then中的方法执行
+
+
+
+        let p = new Promise(function(resolve, reject){
+                // $.ajax({})
+                setTimeout(() => {
+                    console.log('第一次请求成功')
+                    resolve({name:'xingMIng',age:18})
+                }, 1000);
+        });
+
+        p.then(function(data){
+            console.log('发送第二次请求',data)
+            // $.ajax({})
+        },function(){})
+//----------------------------------------------------------
+        function Fn(data) {
+            return new Promise(function (reslvoe, reject) {
+                $.ajax({
+                    url: 'xxx',
+                    params: data,
+                    success: function (data) {
+                        reslvoe(data)
+                    }
+                })
+            })
+        }
+
+        Fn(1).then(function (data) {
+            return Fn(data)
+        }, function () {}).then(function (data) {
+            return Fn(data)
+        }, function () {}).then()
+
+    </script>
+</body>
+
+</html>

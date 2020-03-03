@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        箭头函数
+        1、如果箭头函数只有一个形参，可以省略小括号
+        2、如果箭头函数只有return一行代码，可以省略return和大括号
+        3、箭头函数没有arguments
+        4、箭头函数没有this
+        5、箭头函数不能作为构造函数
+        6、如果形参有默认值，小括号不能省略
+         */
+        //  function fn(){
+        //      return function(m){
+        //          return m
+        //      }
+        //  }
+
+        // let fn = function () {
+        //     return function (m) {
+        //         return m
+        //     }
+        // }
+
+        // let fn = function () {
+        //     return m => m
+        // }
+
+        // let fn = () => m => m;
+
+        // console.log(fn()(6))
+
+
+
+        // let Fn = ()=>{
+        //     this.a = 10;
+        // }
+        // let f = new Fn;
+        // console.log(f)
+
+
+
+        // 赋默认值
+        // function fn(m=6){
+        //     console.log(m) // 1
+        // }
+        // fn(1)
+
+        // let fn = (m = 6) => {
+        //     console.log(m)
+        // }
+        // fn()
+
+        // let fn=(m)=>{
+        //     return {}
+        // }
+
+        // let fn=(m)=>({})
+        
+    </script>
+</body>
+
+</html>

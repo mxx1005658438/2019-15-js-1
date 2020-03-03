@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+        多方向运动动画：
+        left、top、width、height同时变化
+        500    500  500    500
+        */
+        let box = document.getElementById('box');
+        let duration = 3000;
+        function linear(t, b, c, d) {
+            // t:已经运动过的时间
+            // b：开始的位置
+            // c:要运动的总距离
+            // d:需要的总时间
+
+            // 此时此刻相对于body应该运动到的位置
+            return (t / d) * c + b;
+            // return c / d * t + b
+        };
+
+        // let begin = { // 开始的位置
+        //     left:parseFloat(getComputedStyle(box).left),
+        //     top:parseFloat(getComputedStyle(box).top),
+        //     width:parseFloat(getComputedStyle(box).width),
+        //     height:parseFloat(getComputedStyle(box).height)
+        // }
+
+        // let target = { // 目标的位置
+        //     left: 200,
+        //     top:200,
+        //     width:500,
+        //     height:500
+        // }
+        // let change = {}; // 移动的总距离
+        // for(var key in begin){
+        //     // key  : 'left'
+        //     // 计算每一个元素需要运动的总距离，并且放到change对象里
+        //     change[key] = target[key] - begin[key]
+        // }
+        // // console.log(change)
+        // box.onclick = function(){
+        //     let interval = 0;
+        //     let timer = setInterval(() => {
+        //         interval+=17;
+        //         for(var key in change){
+        //             // key :left
+        //             let cur = linear(interval,begin[key],change[key],duration);
+        //             box.style[key] = cur + 'px'
+        //             // box.style.left = cur+'px'
+        //         }
+        //         if(interval>=duration){
+        //             clearInterval(timer);
+        //         }
+        //     }, 17);
+        // }
+
+
+                    /* 
+            curEle：当前需要添加动画的元素
+            target：移动的目标位置
+            duration：动画的总时间
+            callBack：动画执行完成之后的回调函数
+            */
+        function move(curEle,target,duration,callBack){
+            let begin = {};
+            let change = {};
+            for(var key in target){
+                begin[key] = parseFloat(getComputedStyle(curEle)[key]); // 获取开始的位置
+
+                change[key] = target[key] -  begin[key];
+            };
+            let interval = 0;
+            let timer = setInterval(() => {
+                interval+=20;
+                for(var key in change){
+                    let cur = linear(interval,begin[key],change[key],duration);
+                    curEle.style[key] = cur + 'px';
+                }
+                if(interval>=duration){
+                    clearInterval(timer);
+                    callBack ? callBack():null;
+                }
+            }, 20);
+
+
+        }
+        move(box,{left:500,top:500,width:200,height:200},duration,function(){
+            box.style.background = 'green'
+        })
+
+    </script>
+</body>
+
+</html>

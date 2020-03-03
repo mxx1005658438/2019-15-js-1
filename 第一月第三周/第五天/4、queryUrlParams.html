@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                /* 
+    利用正则获取url里的参数
+    */
+    let url = 'http://www.baidu.com?name=erYa&age=18&sex=gril';
+        let reg = /([^?=&#]+)=([^?=&#]+)/g;
+        let obj = {};
+        url.replace(reg, function (item, key, value) {
+            //    let [,key,value] = arguments;
+            obj[key] = value;
+            // obj[arguments[1]] = arguments[2]
+        });
+        url.replace(/#([^?=&#]+)/g, function (item, value) {
+            obj['hash'] = value;
+        })
+
+        console.log(obj)
+
+
+        // obj = {
+        //     name:'erYa',
+        //     age:'18',
+        //     sex:'gril',
+        //     Route:'index'
+        // }
+
+        function queryUrlParams() {
+            // this-->url
+            let reg = /([^?=&#]+)=([^?=&#]+)/g;
+            let obj = {};
+            this.replace(reg, (item, key, value)=> {obj[key] = value});
+            this.replace(/#([^?=&#]+)/g,  (item, value)=> {obj['hash'] = value});
+            return obj;
+        };
+        String.prototype.queryUrlParams = queryUrlParams;//把方法放到原型上
+        url.queryUrlParams()
+
+    </script>
+</body>
+</html>

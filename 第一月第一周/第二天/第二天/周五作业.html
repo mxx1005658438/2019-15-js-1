@@ -8,19 +8,19 @@
 </head>
 <body>
     <script>
-//1        
-//  var x = 0,
+//1 --------------------------------------------       
+//  var x = 0,//2 1 
 //     y = 1;
 // function fn() {
 //     x += 2;
-//     fn = function (y) {
+//     fn = function (y) {//aaafffooo
 //         console.log(y + (--x));
 //     };
-//     console.log(x, y);
+//     console.log(x, y);//2,1
 // }
-// fn(3);
-// fn(4);
-// console.log(x, y);     
+// fn(3);//
+// fn(4);//5
+// console.log(x, y);// 1,1 
 //2=================================================
 // function fn() {
 //     var i = 5;//4
@@ -35,9 +35,9 @@
 // f(20);//
 
 //3==============================================
-// var i = 2;//
+// var i = 2;//4 3 2 4 3 5 4 3
 // function fn() {
-//    var m=0
+//    var m=0//6 7 6 7
 //     i += 2;// 
 //     return function (n) {
 //     m=++n+(--i)
@@ -45,27 +45,27 @@
 //     }
 // }
 // var f = fn();
-// f(2);//
-// f(3);//
-// fn()(2);//
-// fn()(3);//
-// f(4);//
+// f(2);//6
+// f(3);//6
+// fn()(2);//6
+// fn()(3);//8
+// f(4);//8
 
 //4 ==================================================
 // var n = 10;
 // function fn() {
 //     var n = 20;
 //     function f() {
-//         n++;//
-//         console.log(n);//
+//         n++;//21 22
+//         console.log(n);//21 
 //     }
 //     f();
 //     return f;
 // }
 // var x = fn();
-// x();//
-// x();//
-// console.log(n);//
+// x();//22
+// x();//23
+// console.log(n);//10
 
 //5 =========================================
 // console.log(f)// 3
@@ -157,18 +157,18 @@
 //13 --------------------------
 // console.log(num,str);//un un
 //     var num = 18;
-//     var str = "lily";//'candy'
+//     var str = "lily";//candy
 //     function fn2(){
-//         console.log(str,num);//'lily' un 
+//         console.log(str,num);// 'lily' un
 //         num = 19;
+//         ////num 19 14
 //         str = "candy";
 //         var num = 14;
-//         console.log(str,num);//'candy' 14
+//         console.log(str,num);//candy 14
 //     }
 //     fn2();
-// 
-//    console.log(str,num);//'candy' 18
 
+//    console.log(str,num);//candy 18
 //14--------------------------------------
 // function qqq(ary){
 // 	ary.push(100);
@@ -179,13 +179,14 @@
 // var a = [100,200,300];
 // qqq(a);
 // console.log(a);//[100,200,300,100]
-var a=1;
-function fn(a){
-    console.log(a);
-    var a=2;
-    function a(){}
-}
-fn(a)
+
+// var a=1;
+// function fn(a){
+//     console.log(a);
+//     var a=2;
+//     function a(){}
+// }
+// fn(a)
     </script>
 </body>
 </html>

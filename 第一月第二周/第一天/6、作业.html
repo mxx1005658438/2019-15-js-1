@@ -32,30 +32,30 @@
     // fn()(2);//5
     // console.log(i);// 3
     //3==================================
-    // var num =1;//2 4
+    // var num =1;//
     // var obj = {
-    //     num : 2,//4
+    //     num : 2,//
     //     fn : (function () {
     //         this.num *= 2;
-    //         num +=3;//nan 1 3 4 6 7
+    //         num +=3;//NaN 1 3 4 7
     //         var num = 1;
     //         return function () {//aaafffooo
-    //                 num +=2;
-    //                 this.num +=2
+    //                 this.num +=2;
     //                 console.log(++num);
     //     })()
+    // }
     // }
     // var f = obj.fn;
     // f();//4
     // obj.fn();//7
     // console.log(window.num,obj.num);//4,4
     //4==================================
-    // var num = 10;//20 30
-    // var obj = {num: 15};//30
+    // var num = 10;//
+    // var obj = {num: 15};//
     // obj.fn = (function (num) {
     //     this.num += 10;
-    // ///num 15 30 29 28
-    //     num *= 2;//
+    // 
+    //     num *= 2;
     //     return function (n) {//aaafffooo
     //         this.num += n;
     //         console.log(n + (--num));
@@ -66,33 +66,33 @@
     // obj.fn(15);//43
     // console.log(window.num, obj.num);//30,30
     //5====================================
-    var a = 1;//1 2 3
-    var obj1 = {
-        a: 0,
-        fn1: (function (a) {
-        //a 1 2 3 4
-            this.a = a;
-            a++;
-            return function () {//aaafffooo
-                this.a = a++;
-                console.log(a)
-            }
-        })(a)
-    };
-    obj1.fn1();//3
-    var fn1 = obj1.fn1;
-    fn1();//4
-    console.log(a);//3
-    console.log(obj1.a);//2
+    // var a = 1;//
+    // var obj1 = {
+    //     a: 0,
+    //     fn1: (function (a) {
+        
+    //         this.a = a;
+    //         a++;
+    //         return function () {//aaafffooo
+    //             this.a = a++;
+    //             console.log(a)
+    //         }
+    //     })(a)
+    // };
+    // obj1.fn1();//3
+    // var fn1 = obj1.fn1;
+    // fn1();//4
+    // console.log(a);//3
+    // console.log(obj1.a);//2
 
     //6====================================
-    // var number=2;//4 8
+    // var number=2;//
     // var obj={
-    //     number:4,//8
-    //     ////num nan 3 9 27
+    //     number:4,//
+    //     
     //     fn1:(function () {
     //         this.number*=2;
-    //         number=number*2;//
+    //         number=number*2;
     //         var number=3;
     //         return function () {//aaafffooo
     //             this.number*=2;
@@ -127,8 +127,8 @@
     //     num: 2// 22
     // };
     // obj.fn = (function (num) {
-    //     ////num 2 3 4 5
-    //     this.num = num * 2;
+    //    // num 2 3 4 5
+    //     this.num = num * 2;//window.num=num*2=2*2=4
     //     num++;
     //     return function (n) {//aaafffooo
     //         this.num += n;
@@ -155,11 +155,11 @@
     // var obj = {
     //         num: 0,
     //         fn: function () {
-    //             var num = 6;//1
+    //             var num = 6;//
     //             (function (num) {
     //                 this.num = ++this.num;
     //                 num++;//nan 
-    //                 console.log(num)//1
+    //                 console.log(num)//
     //             })(this.num) 
     //         }
     //     }
@@ -167,21 +167,21 @@
     //     console.log(window.num, obj.num);//NaN,0
     
     //11================================================
-    var num = 100;
-        var obj = {
-            num: 2,//3
-            fn: function () {
-                num = 1;//2
-                console.log(this);//2
-                (function (num) {
-                    console.log(num + this.num++); //3
-                })(this.num)
-            }
-        }
-        obj.fn();
-        var f = obj.fn;
-        f(); //2
-        console.log(num);//2
+    // var num = 100;
+    //     var obj = {
+    //         num: 2,//
+    //         fn: function () {
+    //             num = 1;//
+    //             console.log(this);//
+    //             (function (num) {
+    //                 console.log(num + this.num++); //
+    //             })(this.num)
+    //         }
+    //     }
+    //     obj.fn();
+    //     var f = obj.fn;
+    //     f(); //2
+    //     console.log(num);//2
 
     </script>
 </body>

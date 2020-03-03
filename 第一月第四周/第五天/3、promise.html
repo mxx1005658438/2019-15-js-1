@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、我要向服务器发送请求-->第一次请求来的内容
+        // 2、我要把第一次请求来的内容作为参数发送第二次请求
+
+        // $.ajax({
+        //     url: 'xxxxxx',
+        //     success: function (data) {
+        //         console.log(data)
+        //         $.ajax({
+        //             url: 'xxxxx',
+        //             params: data,
+        //             success: function (data2) {
+        //                 $.ajax({
+        //                     url: 'xxx',
+        //                     params: data2,
+        //                     success: function () {
+        //                     }
+        //                 })
+        //             }
+        //         })
+        //     }
+        // })
+
+        // let p = new Promise(function (reslvoe, reject) {
+        //     $.ajax({
+        //         url: 'xxx',
+        //         success: function (data) {
+        //             reslvoe(data) // 成功态
+        //         }
+        //     })
+        //     setTimeout(function(){
+        //         reslvoe()
+        //     },2000)
+        // })
+
+        // p.then(function (data) {
+        //     return new Promise(function (reslvoe, reject) {
+        //         $.ajax({
+        //             url: 'xxx',
+        //             params: data,
+        //             success: function (data2) {
+        //                 reslvoe(data2)
+        //             } 
+        //         })
+        //     })
+        // }, function () {}).then(function () {}, function () {}).then()
+
+
+        function Fn(data) {
+            return new Promise(function (reslvoe, reject) {
+                $.ajax({
+                    url: 'xxx',
+                    params: data,
+                    success: function (data) {
+                        reslvoe(data)
+                    }
+                })
+            })
+        }
+
+        Fn(1).then(function (data) {
+            return Fn(data)
+        }, function () {}).then(function (data) {
+            return Fn(data)
+        }, function () {}).then()
+
+
+        setTimeout(function(){},1000);
+        // for (var i = 0; i < 10000000; i++) {
+           
+        // }
+    </script>
+</body>
+
+</html>

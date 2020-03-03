@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>a
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" class="w">11111</div>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+    /* 
+    jQ的常用的属性
+    attr:获取或者设置元素行内属性
+    removeAttr:移除元素行内属性
+    addClass:增加class名
+    removeClass：移除class名
+    toggleClass：有就是删除，没有就是新增
+    html:获取元素内容
+    text:获取元素内容
+    val:获取表单元素的内容 
+    */
+    $('#box').attr('ss',10);
+    $('#box').attr({
+        name:1,
+        age:2
+    });
+    $('#box').removeAttr('ss')
+    console.log($('#box').attr('ss'))
+    $('#box').addClass('ss');
+    $('#box').addClass('rr');
+    $('#box').toggleClass('w')
+    console.log($('#box').html('34456777'))
+    console.log($('#box').text())
+
+    </script>
+</body>
+</html>

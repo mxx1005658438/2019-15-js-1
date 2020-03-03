@@ -44,8 +44,7 @@
 
         new Foo.getName(); //  先算Foo.getName  new af0() // 2
         new Foo().getName(); // 先算new Foo() 返回值 Foo的实例(f1)--> f1.getName()-->af1()  // 3
-        new new Foo().getName();
-        
+        new new Foo().getName();        
         // 先算 new Foo() 返回值是Foo的实例(f2)-->new f2.getName()--> new af1() // 3
         
 

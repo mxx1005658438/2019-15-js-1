@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            width: 800px;
+            border: 1px solid red;
+            margin: 20px auto;
+            text-align: center;
+            list-style: none;
+        }
+        li {
+            border-bottom:1px solid red;
+            line-height: 20px;
+        }
+        #btn {
+            display: block;
+            width: 50px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <ul id="box">
+        <li>34</li>
+        <li>12</li>
+        <li>20</li>
+        <li>16</li>
+        <li>60</li>
+    </ul>
+    <button id="btn">排序</button>
+    <script src="./utils.js"></script>
+    <script>
+        let btn = document.getElementById('btn');
+        let lis = document.querySelectorAll('#box li');
+        let box = document.getElementById('box')
+        lis = utils.toArray(lis); // 把类数组转数组
+        let flag = -1; // 1 -1
+
+        btn.onclick = function(){
+            flag*=-1;
+            lis.sort(function(a,b){
+                // console.log(a.innerHTML,b.innerHTML)
+                return (a.innerHTML-b.innerHTML)*flag
+                  // (a-b)*-1 // =>-a-(-b)=>-a+b=>b-a
+            });
+            console.log(lis)
+            for (var i = 0; i < lis.length; i++) {
+               box.appendChild(lis[i]) // 往元素末尾新增内容
+            }
+        }
+    
+        /* 
+        dom的映射机制：页面中的标签和js中的dom元素存在一一映射关系，你只要js中的dom元素，那页面中的标签也会跟着变动
+        */
+
+    </script>
+</body>
+</html>

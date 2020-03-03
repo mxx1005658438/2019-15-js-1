@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 500px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        ul{
+            display: flex;
+            list-style: none;
+            position: relative;
+            top: 1px;
+        }
+        ul li{
+            width: 200px;
+            border: 1px solid red;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        #box div{
+            width: 500px;
+            height: 300px;
+            line-height: 300px;
+            font-size: 50px;
+            display: none;
+            border: 1px solid red;
+            text-align: center;  
+        }
+        #box div.active{
+            display: block;
+        }
+        ul li.active{
+            border-bottom-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'> 
+        <ul id='navList'>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div class='active'>一</div>
+        <div>二</div>
+        <div>三</div>
+    </div>
+   <script>
+      let navList=document.querySelectorAll('#box li');
+      let tabList=document.querySelectorAll('#box div');
+      //1、利用增加自定义属性
+    //   for(var i=0;i<navList.length;i++){
+    //       navList[i].myIndex=i;
+    //       navList[i].onclick=function(){
+    //          selected(this.myIndex);
+    //       }
+    //     }
+
+    //2、利用块级作用域
+//     for(let i=0;i<navList.length;i++){
+//         navList[i].onclick=function(){
+//             selected(i);
+//         }
+//     }
+// {
+//     let i=0;
+//     navList[0].onclick=function(){
+//         selected(i)
+//     }
+// }
+// {
+//     let i=1;
+//     navList[1].onclick=function(){
+//         selected(i)
+//     }
+// }
+// {
+//     let i=2;
+//     navList[2].onclick=function(){
+//         selected(i)
+//     }
+// }
+//         function selected(index){
+    //3、利用闭包机制
+    // for(var i=0;i<navList.length;i++){
+    //     navList[i].onclick=(function(index){
+    //         return function(){
+    //             selected(index)
+    //         }
+    //     })(i)
+    // }
+     /*      当i=0时
+        navList[0].onclick = (function (index) { // 0
+                return function () {
+                    selected(index)
+                }
+            })(i) 
+
+
+        当i=1时
+        navList[1].onclick = (function (index) { // 1
+                return function () {
+                    selected(index)
+                }
+            })(i)
+
+
+        当i=2时
+        navList[2].onclick = (function (index) { // 2
+                return function () {
+                    selected(index)
+                }
+            })(i)
+            */
+     //4、利用attribute实现
+      // for (var i = 0; i < navList.length; i++) {
+        //     navList[i].setAttribute('myIndex',i);
+        //     navList[i].onclick = function () {
+        //         selected(this.getAttribute('myIndex')) // 传递相对应的索引
+        //     }
+        // }
+          for(let i=0;i<navList.length;i++){
+              navList[i].className='';
+              tabList[i].className='';
+          }
+          navList[index].className='active';
+          tabList[index].className='active';
+        }
+   </script>
+</body>
+</html>
